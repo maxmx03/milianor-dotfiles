@@ -1,0 +1,10 @@
+format="$directory$time$all"
+
+[directory]
+format = "[$path 🚀]($style) "
+
+[time]
+disabled = false
+format = "[$time]($style) "
+use_12hr = true
+style = "white bold"
