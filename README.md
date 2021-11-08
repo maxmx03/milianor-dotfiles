@@ -1,4 +1,4 @@
-# Neovim configuration created by Max Miliano
+# dotfiles created by Max Miliano
 
 # Requirements
 - Node
