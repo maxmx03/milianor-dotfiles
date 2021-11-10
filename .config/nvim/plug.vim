@@ -2,9 +2,6 @@ call plug#begin(has('nvim') ? stdpath('data') . '/plugged' : '~/.vim/plugged')
 " Color theme
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
-" Lua dev
-Plug 'tjdevries/nlua.nvim'
-
 " General
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}

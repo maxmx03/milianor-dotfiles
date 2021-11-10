@@ -1,3 +1,3 @@
-require('lualine').setup {
- theme = 'tokyonight'
+require("lualine").setup {
+  theme = "tokyonight"
 }
