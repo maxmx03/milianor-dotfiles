@@ -16,6 +16,8 @@ Plug 'mhartington/formatter.nvim'
 Plug 'windwp/nvim-autopairs'
 Plug 'windwp/nvim-ts-autotag'
 Plug 'p00f/nvim-ts-rainbow'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 
 "AutoCompletion
 Plug 'hrsh7th/cmp-nvim-lsp'

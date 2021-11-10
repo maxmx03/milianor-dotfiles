@@ -73,6 +73,76 @@ require("formatter").setup(
             stdin = true
           }
         end
+      },
+      css = {
+        --prettier
+        function()
+          return {
+            exe = "npx prettier",
+            args = {"--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), "--single-quote"},
+            stdin = true
+          }
+        end
+      },
+      scss = {
+        --prettier
+        function()
+          return {
+            exe = "npx prettier",
+            args = {"--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), "--single-quote"},
+            stdin = true
+          }
+        end
+      },
+      markdown = {
+        --prettier
+        function()
+          return {
+            exe = "npx prettier",
+            args = {"--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), "--single-quote"},
+            stdin = true
+          }
+        end
+      },
+      graphql = {
+        --prettier
+        function()
+          return {
+            exe = "npx prettier",
+            args = {"--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), "--single-quote"},
+            stdin = true
+          }
+        end
+      },
+      prisma = {
+        --prettier
+        function()
+          return {
+            exe = "npx prettier",
+            args = {"--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), "--single-quote"},
+            stdin = true
+          }
+        end
+      },
+      yaml = {
+        --prettier
+        function()
+          return {
+            exe = "npx prettier",
+            args = {"--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), "--single-quote"},
+            stdin = true
+          }
+        end
+      },
+      html = {
+        --prettier
+        function()
+          return {
+            exe = "npx prettier",
+            args = {"--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), "--single-quote"},
+            stdin = true
+          }
+        end
       }
     }
   }
@@ -82,7 +152,7 @@ vim.api.nvim_exec(
   [[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePost *.js,*.jsx,*.tsx,*.json,*.py,*.lua FormatWrite
+  autocmd BufWritePost *.js,*.ts,*.jsx,*.tsx,*.json,*.css,*.scss,*.graphql,*.prisma,*.markdown,*.yaml,*.html,*.py,*.lua FormatWrite
 augroup END
 ]],
   true
