@@ -28,4 +28,7 @@ Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 
+" Emmet - HTML
+Plug 'mattn/emmet-vim'
+
 call plug#end()
