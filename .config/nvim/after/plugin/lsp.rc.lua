@@ -62,7 +62,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = {"pyright", "tsserver", "sumneko_lua", "cssls", "html", "angularls"}
+local servers = {"pyright", "tsserver", "sumneko_lua", "cssls", "html"}
 for _, lsp in ipairs(servers) do
   if (lsp == "sumneko_lua") then
     nvim_lsp[lsp].setup {
@@ -151,6 +151,7 @@ cmp.setup {
     {name = "luasnip"},
     {name = "cmp_tabnine"},
     {name = "path"},
-    {name = "buffer"}
+    {name = "buffer"},
+    {name = "cmdline"}
   }
 }
