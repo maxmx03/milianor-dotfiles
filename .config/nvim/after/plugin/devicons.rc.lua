@@ -3,7 +3,7 @@ local devicons = require "nvim-web-devicons"
 local _, jscolor = devicons.get_icon_color("index.js", "js")
 local tsicon, _ = devicons.get_icon_color("index.ts", "ts")
 local _, htmlcolor = devicons.get_icon_color("index.html", "html")
-local tscolor, csscolor, gitcolor = "#3DB2FF", "#B983FF", "#C84B31"
+local tscolor, csscolor, gitcolor, angularcolor = "#3DB2FF", "#7C83FD", "#C84B31", "#EC4646"
 
 devicons.set_icon {
   html = {
@@ -65,6 +65,16 @@ devicons.set_icon {
     icon = "",
     color = csscolor,
     name = "angularcss"
+  },
+  ["module.ts"] = {
+    icon = "",
+    color = angularcolor,
+    name = "angularmodule"
+  },
+  ["service.ts"] = {
+    icon = "",
+    color = jscolor,
+    name = "angularservice"
   }
 }
 
