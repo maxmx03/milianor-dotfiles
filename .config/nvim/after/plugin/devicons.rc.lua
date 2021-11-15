@@ -3,7 +3,13 @@ local devicons = require "nvim-web-devicons"
 local _, jscolor = devicons.get_icon_color("index.js", "js")
 local tsicon, _ = devicons.get_icon_color("index.ts", "ts")
 local _, htmlcolor = devicons.get_icon_color("index.html", "html")
-local tscolor, csscolor, gitcolor, angularcolor = "#3DB2FF", "#7C83FD", "#C84B31", "#EC4646"
+local tscolor, csscolor, gitcolor, angularcolor, karmacolor, jsoncolor =
+  "#3DB2FF",
+  "#7C83FD",
+  "#C84B31",
+  "#EC4646",
+  "#17D7A0",
+  "#3E7C17"
 
 devicons.set_icon {
   html = {
@@ -20,6 +26,16 @@ devicons.set_icon {
     icon = tsicon,
     color = tscolor,
     name = "typescript"
+  },
+  ["package.json"] = {
+    icon = "",
+    color = jsoncolor,
+    name = "packagejson"
+  },
+  ["package-lock.json"] = {
+    icon = "",
+    color = jsoncolor,
+    name = "packagejson"
   },
   [".gitkeep"] = {
     icon = "",
@@ -75,6 +91,16 @@ devicons.set_icon {
     icon = "",
     color = jscolor,
     name = "angularservice"
+  },
+  ["angular.json"] = {
+    icon = "",
+    color = angularcolor,
+    name = "angularmodule"
+  },
+  ["karma.conf.js"] = {
+    icon = "",
+    color = karmacolor,
+    name = "karmaconfig"
   }
 }
 
