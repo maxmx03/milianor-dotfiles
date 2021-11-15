@@ -77,7 +77,7 @@ for _, lsp in ipairs(servers) do
         Lua = {
           runtime = {
             -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-            version = "LuaJIT",
+            version = "Lua 5.4",
             -- Setup your lua path
             path = runtime_path
           },
@@ -110,7 +110,31 @@ end
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = "menuone,noselect"
 
+local lspkind = require("lspkind")
+
+local source_mapping = {
+  buffer = "[Buffer]",
+  nvim_lsp = "[LSP]",
+  nvim_lua = "[Lua]",
+  cmp_tabnine = "[TN]",
+  path = "[Path]"
+}
+
 cmp.setup {
+  formatting = {
+    format = function(entry, vim_item)
+      vim_item.kind = lspkind.presets.default[vim_item.kind]
+      local menu = source_mapping[entry.source.name]
+      if entry.source.name == "cmp_tabnine" then
+        if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
+          menu = entry.completion_item.data.detail .. " " .. menu
+        end
+        vim_item.kind = ""
+      end
+      vim_item.menu = menu
+      return vim_item
+    end
+  },
   snippet = {
     expand = function(args)
       require("luasnip").lsp_expand(args.body)
