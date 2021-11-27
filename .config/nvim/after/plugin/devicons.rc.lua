@@ -35,7 +35,7 @@ devicons.set_icon {
   ["package-lock.json"] = {
     icon = "",
     color = jsoncolor,
-    name = "packagejson"
+    name = "packagelockjson"
   },
   [".gitkeep"] = {
     icon = "",

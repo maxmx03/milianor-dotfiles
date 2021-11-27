@@ -143,6 +143,15 @@ require("formatter").setup(
             stdin = true
           }
         end
+      },
+      java = {
+        function()
+          return {
+            exe = "java",
+            args = {"-jar", os.getenv("HOME") .. "/.local/jars/google-java-format.jar", vim.api.nvim_buf_get_name(0)},
+            stdin = true
+          }
+        end
       }
     }
   }
@@ -152,7 +161,7 @@ vim.api.nvim_exec(
   [[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePost *.js,*.ts,*.jsx,*.tsx,*.json,*.css,*.scss,*.graphql,*.prisma,*.markdown,*.yaml,*.html,*.py,*.lua FormatWrite
+  autocmd BufWritePost *.js,*.ts,*.jsx,*.tsx,*.json,*.css,*.scss,*.graphql,*.prisma,*.markdown,*.yaml,*.html,*.py,*.lua,*.java FormatWrite
 augroup END
 ]],
   true
