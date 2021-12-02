@@ -27,6 +27,9 @@ Plug 'tzachar/cmp-tabnine', { 'do': './install.sh' }
 "Diagnostics
 Plug 'folke/trouble.nvim'
 
+" Import size
+Plug 'yardnsm/vim-import-cost', { 'do': 'npm install --production' }
+
 " LuaSnip
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
