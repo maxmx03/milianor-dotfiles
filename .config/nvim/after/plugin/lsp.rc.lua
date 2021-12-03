@@ -3,6 +3,8 @@ local nvim_lsp = require "lspconfig"
 local luasnip = require "luasnip"
 -- nvim-cmp setup
 local cmp = require "cmp"
+-- friendly snippets
+require("luasnip/loaders/from_vscode").load()
 
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...)

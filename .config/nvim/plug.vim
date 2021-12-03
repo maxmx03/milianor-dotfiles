@@ -34,6 +34,9 @@ Plug 'yardnsm/vim-import-cost', { 'do': 'npm install --production' }
 Plug 'L3MON4D3/LuaSnip'
 Plug 'saadparwaiz1/cmp_luasnip'
 
+" Snippets for LuaSnip
+Plug 'rafamadriz/friendly-snippets'
+
 " Emmet - HTML
 Plug 'mattn/emmet-vim'
 
