@@ -4,7 +4,7 @@ local luasnip = require "luasnip"
 -- nvim-cmp setup
 local cmp = require "cmp"
 -- friendly snippets
-require("luasnip/loaders/from_vscode").load()
+require("luasnip/loaders/from_vscode").lazy_load()
 
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...)
@@ -64,7 +64,7 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = {"pyright", "tsserver", "sumneko_lua", "cssls", "html"}
+local servers = {"pyright", "tsserver", "sumneko_lua", "cssls", "html", "vuels"}
 for _, lsp in ipairs(servers) do
   if (lsp == "sumneko_lua") then
     nvim_lsp[lsp].setup {
