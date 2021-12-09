@@ -19,7 +19,7 @@
 4. VictorMono Nerd Font *used in Powershell*
 
 ## Themes/Colors - Tokyo Night
-= [Neovim/Fish](https://github.com/folke/tokyonight.nvim)
+- [Neovim/Fish](https://github.com/folke/tokyonight.nvim)
 - [Windows Terminal](https://windowsterminalthemes.dev/)
 
 ## Recommended Tutorials
@@ -27,5 +27,5 @@
 2. [Fish](https://www.youtube.com/watch?v=KKxhf50FIPI&t=873s)
 3. [PowerShell](https://www.youtube.com/watch?v=5-aK2_WwrmM&t=384s)
 
-# All credits to *Takuya Matsuyama*
+##### All credits to *Takuya Matsuyama*
 - [Website](https://www.craftz.dog/)
