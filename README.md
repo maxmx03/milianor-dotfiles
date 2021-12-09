@@ -27,5 +27,5 @@
 2. [Fish](https://www.youtube.com/watch?v=KKxhf50FIPI&t=873s)
 3. [PowerShell](https://www.youtube.com/watch?v=5-aK2_WwrmM&t=384s)
 
-##### All credits to *Takuya Matsuyama*
+### All credits to *Takuya Matsuyama*
 - [Website](https://www.craftz.dog/)
