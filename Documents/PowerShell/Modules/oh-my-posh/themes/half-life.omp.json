@@ -1,0 +1,69 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "session",
+          "style": "plain",
+          "foreground": "#7E46B6",
+          "properties": {
+            "prefix": "",
+            "template": "{{ .UserName }}"
+          }
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "#ffffff",
+          "properties": {
+            "prefix": "",
+            "text": "in"
+          }
+        },
+        {
+          "type": "path",
+          "style": "plain",
+          "foreground": "#87FF00",
+          "properties": {
+            "style": "full",
+            "prefix": ""
+          }
+        },
+        {
+          "type": "git",
+          "style": "plain",
+          "foreground": "#5FD7FF",
+          "properties": {
+            "prefix": "<#ffffff>on</> ",
+            "branch_icon": "",
+            "branch_ahead_icon": "",
+            "branch_behind_icon": "",
+            "branch_gone_icon": "",
+            "branch_identical_icon": "",
+            "commit_icon": "",
+            "tag_icon": "",
+            "merge_icon": "",
+            "rebase_icon": "",
+            "cherry_pick_icon": "",
+            "revert_icon": "",
+            "template": "{{ .HEAD }}{{ if .Staging.Changed }}<#87FF00> ● {{ .Staging.String }}</>{{ end }}{{ if .Working.Changed }}<#D75F00> ● {{ .Working.String }}</>{{ end }}",
+            "fetch_status": true
+          }
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "#D75F00",
+          "properties": {
+            "text": "λ",
+            "prefix": ""
+          }
+        }
+      ]
+    }
+  ],
+  "final_space": false
+}

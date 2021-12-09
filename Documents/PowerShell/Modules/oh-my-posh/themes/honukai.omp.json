@@ -1,0 +1,95 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "session",
+          "style": "plain",
+          "foreground": "#FFFFFF",
+          "properties": {
+            "prefix": "<#0377C8># </>",
+            "template": "<#0377C8>{{ .UserName }}</> <#ffffff>in</> <#4A9207>{{ .ComputerName }}</>"
+          }
+        },
+        {
+          "type": "path",
+          "style": "plain",
+          "foreground": "#0973C0",
+          "properties": {
+            "folder_icon": "\uF115",
+            "folder_separator_icon": " \uE0B1 ",
+            "style": "full"
+          }
+        },
+        {
+          "type": "git",
+          "style": "plain",
+          "foreground": "#B8B80A",
+          "properties": {
+            "prefix": "<#ffffff>on git:</>",
+            "template": "{{ .HEAD }}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "right",
+      "segments": [
+        {
+          "type": "time",
+          "style": "plain",
+          "foreground": "#ffffff",
+          "properties": {
+            "prefix": "[",
+            "postfix": "]"
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "root",
+          "style": "plain",
+          "foreground": "#CECE04",
+          "properties": {
+            "prefix": ""
+          }
+        },
+        {
+          "type": "python",
+          "style": "plain",
+          "foreground": "#100e23",
+          "properties": {
+            "prefix": "\uE235 "
+          }
+        },
+        {
+          "type": "exit",
+          "style": "plain",
+          "foreground": "#CB4B16",
+          "properties": {
+            "template": "{{ .Text }}"
+          }
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "#CC4B16",
+          "properties": {
+            "prefix": "",
+            "text": "\u279C"
+          }
+        }
+      ]
+    }
+  ],
+  "final_space": true
+}

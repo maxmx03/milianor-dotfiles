@@ -1,0 +1,64 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "exit",
+          "style": "plain",
+          "foreground": "#ffffff",
+          "properties": {
+            "template": "{{ .Text }}",
+            "postfix": ""
+          }
+        },
+        {
+          "type": "root",
+          "style": "plain",
+          "foreground": "#100e23"
+        },
+        {
+          "type": "session",
+          "style": "plain",
+          "foreground": "#ffffff",
+          "properties": {
+            "template": "{{ .UserName }}@{{ .ComputerName }}"
+          }
+        },
+        {
+          "type": "path",
+          "style": "plain",
+          "foreground": "#ffffff",
+          "background": "#007ACC",
+          "properties": {
+            "folder_icon": "\uF115",
+            "folder_separator_icon": " \uE0B1 ",
+            "style": "full",
+            "prefix": "<transparent>\uE0B0</> "
+          }
+        },
+        {
+          "type": "git",
+          "style": "plain",
+          "foreground": "#ffffff",
+          "background": "#007ACC",
+          "properties": {
+            "prefix": "<#ffffff>\uE0B1</> ",
+            "template": "{{ .HEAD }}"
+          }
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "#007ACC",
+          "properties": {
+            "prefix": "",
+            "text": "\uE0B0"
+          }
+        }
+      ]
+    }
+  ]
+}

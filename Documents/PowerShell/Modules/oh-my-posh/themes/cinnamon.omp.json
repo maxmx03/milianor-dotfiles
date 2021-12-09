@@ -1,0 +1,69 @@
+{
+    "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+    "blocks": [
+      {
+        "type": "prompt",
+        "alignment": "left",
+        "segments": [
+          {
+            "type": "session",
+            "style": "diamond",
+            "foreground": "#ffffff",
+            "background": "#07585c",
+            "leading_diamond": "\uE0B6",
+            "properties": {
+              "template": "{{ .UserName }}@{{ .ComputerName }}"
+            }
+          },
+          {
+            "type": "path",
+            "style": "plain",
+            "foreground": "#ffffff",
+            "background": "#3e9022",
+            "properties": {
+              "prefix": " \uE5FF ",
+              "style": "folder"
+            }
+          },
+          {
+            "type": "git",
+            "style": "plain",
+            "foreground": "#ffffff",
+            "background": "#de076f",
+            "properties": {
+              "fetch_upstream_icon": true,
+              "branch_icon": "",
+              "template": "{{ .UpstreamIcon }}{{ .HEAD }}"
+            }
+          },
+          {
+            "type": "spotify",
+            "style": "plain",
+            "foreground": "#ffffff",
+            "background": "#491545",
+            "properties": {
+              "prefix": " \uF9C6 ",
+              "playing_icon": "\uE602 ",
+              "paused_icon": "\uF8E3 ",
+              "stopped_icon": "\uF04D ",
+              "track_separator" : " - "
+            }
+          },
+          {
+            "type": "exit",
+            "style": "diamond",
+            "trailing_diamond": "\uE0B4",
+            "foreground": "#ffffff",
+            "background": "#491515",
+            "background_templates": ["{{ if gt .Code 0 }}#f1184c{{ end }}"],
+            "properties": {
+              "template": "\uF7d4",
+              "always_enabled": true
+            }
+          }
+        ]
+      }
+    ],
+    "final_space": true
+  }
+

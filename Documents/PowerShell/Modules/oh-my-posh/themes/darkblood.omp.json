@@ -1,0 +1,68 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "session",
+          "style": "plain",
+          "foreground": "#ffffff",
+          "properties": {
+            "prefix": "<#CB4B16>┏[</>",
+            "postfix": "<#CB4B16>]</>",
+            "template": "{{ .UserName }}"
+          }
+        },
+        {
+          "type": "git",
+          "style": "plain",
+          "foreground": "#ffffff",
+          "properties": {
+            "prefix": "<#CB4B16>[</>",
+            "postfix": "<#CB4B16>]</>",
+            "template": "{{ .HEAD }}"
+          }
+        },
+        {
+          "type": "root",
+          "style": "plain",
+          "foreground": "#ffffff",
+          "properties": {
+            "prefix": "<#CB4B16>[</>",
+            "postfix": "<#CB4B16>]</>"
+          }
+        },
+        {
+          "type": "exit",
+          "style": "plain",
+          "foreground": "#ffffff",
+          "properties": {
+            "template": "{{ .Text }}",
+            "prefix": "<#CB4B16>[x</>",
+            "postfix": "<#CB4B16>]</>"
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "path",
+          "style": "plain",
+          "foreground": "#ffffff",
+          "properties": {
+            "style": "full",
+            "prefix": "<#CB4B16>┖[</>",
+            "postfix": "<#CB4B16>]></>"
+          }
+        }
+      ]
+    }
+  ],
+  "final_space": true
+}

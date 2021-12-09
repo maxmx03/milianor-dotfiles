@@ -1,0 +1,79 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "#ffffff",
+          "properties": {
+            "prefix": "",
+            "text": "<#C591E8>\u276F</><#69FF94>\u276F</>"
+          }
+        },
+        {
+          "type": "path",
+          "style": "plain",
+          "foreground": "#56B6C2",
+          "properties": {
+            "prefix": "",
+            "style": "folder"
+          }
+        },
+        {
+          "type": "git",
+          "style": "plain",
+          "foreground": "#D0666F",
+          "properties": {
+            "branch_icon": "",
+            "prefix": "<#5FAAE8>git:(</>",
+            "postfix": "<#5FAAE8>)</>",
+            "template": "{{ .HEAD }}"
+          }
+        },
+        {
+          "type": "exit",
+          "style": "plain",
+          "foreground": "#DCB977",
+          "properties": {
+            "template": "\uF119"
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "right",
+      "segments": [
+        {
+          "type": "command",
+          "style": "plain",
+          "foreground": "#ffffff",
+          "properties": {
+            "shell": "bash",
+            "command": "git log --pretty=format:%cr -1 || date +%H:%m:%S"
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "#ffffff",
+          "properties": {
+            "prefix": "",
+            "text": "\uF441"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "exit",
+          "style": "plain",
+          "foreground": "#CB4B16",
+          "properties": {
+            "template": "{{ .Text }}"
+          }
+        },
+        {
+          "type": "root",
+          "style": "plain",
+          "foreground": "#CECE04"
+        },
+        {
+          "type": "session",
+          "style": "plain",
+          "foreground": "#FFFFFF",
+          "properties": {
+            "prefix": "",
+            "template": "{{ .UserName }}@{{ .ComputerName }}"
+          }
+        },
+        {
+          "type": "path",
+          "style": "plain",
+          "foreground": "#0973C0",
+          "properties": {
+            "style": "full",
+            "prefix": ""
+          }
+        },
+        {
+          "type": "git",
+          "style": "plain",
+          "foreground": "#C1C106",
+          "properties": {
+            "prefix": "<#ffffff>git:</>",
+            "template": "{{ .HEAD }}"
+          }
+        },
+        {
+          "type": "python",
+          "style": "plain",
+          "foreground": "#100e23",
+          "properties": {
+            "prefix": " \uE235 "
+          }
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "#ffffff",
+          "properties": {
+            "prefix": "",
+            "text": "<#CB4B16>\u276F</><#CACA02>\u276F</><#4E9A06>\u276F</>"
+          }
+        }
+      ]
+    }
+  ]
+}

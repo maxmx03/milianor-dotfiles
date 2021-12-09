@@ -1,0 +1,61 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "final_space": true,
+  "osc99": true,
+  "console_title": true,
+  "console_title_style": "template",
+  "console_title_template": "{{.Folder}}{{if .Root}} :: root{{end}} :: {{.Shell}}",
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "root",
+          "style": "plain",
+          "foreground": "yellow",
+          "properties": {
+            "root_icon": ""
+          }
+        },
+        {
+          "type": "path",
+          "style": "diamond",
+          "foreground": "black",
+          "background": "lightBlue",
+          "leading_diamond": "",
+          "trailing_diamond": "\uE0B0",
+          "properties": {
+            "style": "mixed"
+          }
+        },
+        {
+          "type": "git",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "black",
+          "background": "green",
+          "background_templates": [
+            "{{ if or (.Working.Changed) (.Staging.Changed) }}yellow{{ end }}"
+          ],
+          "properties": {
+            "fetch_status": true,
+            "template": "{{ .HEAD }}{{ if .Staging.Changed }} {{ .Staging.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }} {{ .Working.String }}{{ end }}",
+            "branch_icon": " ",
+            "branch_identical_icon": "≡",
+            "branch_ahead_icon": "↑",
+            "branch_behind_icon": "↓",
+            "branch_gone": "≢",
+            "stash_count_icon": "",
+            "commit_icon": "▷ ",
+            "tag_icon": "▶ ",
+            "rebase_icon": "Ɫ ",
+            "cherry_pick_icon": "✓ ",
+            "merge_icon": "◴ ",
+            "no_commits_icon": "[no commits]"
+          }
+        }
+      ]
+    }
+  ]
+}

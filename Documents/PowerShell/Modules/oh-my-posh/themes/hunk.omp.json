@@ -1,0 +1,146 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "final_space": true,
+  "console_title": true,
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "segments": [
+        {
+          "type": "os",
+          "style": "diamond",
+          "foreground": "#ffffff",
+          "background": "#c44569",
+          "leading_diamond": "\uE0B6",
+          "trailing_diamond": "",
+          "properties": {
+            "prefix": "",
+            "windows": "\uE62A",
+            "postfix": ""
+          }
+        },
+        {
+          "type": "path",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#ffffff",
+          "background": "#c44569",
+          "properties": {
+            "prefix": "",
+            "style": "full"
+          }
+        },
+        {
+          "type": "node",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#ffffff",
+          "background": "#f78fb3",
+          "properties": {
+            "prefix": " \uE718 "
+          }
+        },
+        {
+          "type": "python",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#ffffff",
+          "background": "#f78fb3",
+          "properties": {
+            "prefix": " \uE235 ",
+            "display_version": false
+          }
+        },
+        {
+          "type": "git",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B0",
+          "foreground": "#ffffff",
+          "background": "#caffbf",
+          "background_templates": [
+            "{{ if or (.Working.Changed) (.Staging.Changed) }}#FCA17D{{ end }}",
+            "{{ if and (gt .Ahead 0) (gt .Behind 0) }}#f26d50{{ end }}",
+            "{{ if gt .Ahead 0 }}#89d1dc{{ end }}",
+            "{{ if gt .Behind 0 }}#f17c37{{ end }}"
+          ],
+          "properties": {
+            "fetch_upstream_icon": true,
+            "fetch_status": true,
+            "template": "{{ .UpstreamIcon }}{{ .HEAD }}{{ if .Staging.Changed }} \uF046 {{ .Staging.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }} \uF044 {{ .Working.String }}{{ end }}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "right",
+      "segments": [
+        {
+          "type": "executiontime",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B2",
+          "invert_powerline": true,
+          "foreground": "#ffffff",
+          "background": "#83769c",
+          "properties": {
+            "always_enabled": true
+          }
+        },
+        {
+          "type": "root",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B2",
+          "invert_powerline": true,
+          "foreground": "#FFD700",
+          "background": "#86BBD8",
+          "properties": {
+            "postfix": "",
+            "root_icon": "⚡"
+          }
+        },
+        {
+          "type": "session",
+          "style": "powerline",
+          "powerline_symbol": "\uE0B2",
+          "invert_powerline": true,
+          "foreground": "#ffffff",
+          "background": "#86BBD8",
+          "properties": {
+            "template": "{{ .UserName }}"
+          }
+        },
+        {
+          "type": "shell",
+          "style": "diamond",
+          "trailing_diamond": "\uE0B4",
+          "invert_powerline": true,
+          "foreground": "#ffffff",
+          "background": "#33658A"
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "root",
+          "style": "plain",
+          "properties": {}
+        },
+        {
+          "type": "text",
+          "style": "plain",
+          "foreground": "#ffffff",
+          "properties": {
+            "prefix": "",
+            "postfix": "",
+            "text": "<#69FF94>\u276F</>"
+          }
+        }
+      ]
+    }
+  ]
+}
