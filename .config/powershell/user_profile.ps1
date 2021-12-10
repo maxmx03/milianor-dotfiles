@@ -3,11 +3,6 @@ import-Module posh-git
 import-Module oh-my-posh
 Set-PoshPrompt Space
 
-# Load prompt config
-# function Get-ScriptDirectory { Split-Path $MyInvocation.ScriptName }
-# $PROMPT CONFIG = Join-Path (Get-ScriptDirectory) 'max.cpm.json'
-# oh-my-posh --init --shell pwsh --config $PROMPT_CONFIG | Invoke-Expression
-
 # Icons
 Import-Module -Name Terminal-Icons
 
