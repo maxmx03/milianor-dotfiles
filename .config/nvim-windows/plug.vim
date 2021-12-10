@@ -47,6 +47,10 @@ if has("nvim")
 
   " Snippets for LuaSnip
   Plug 'rafamadriz/friendly-snippets'
+
+  " Git Diffview
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'sindrets/diffview.nvim'
 endif
 
 call plug#end()

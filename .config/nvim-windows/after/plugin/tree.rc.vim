@@ -1,3 +1,4 @@
+lua << EOF
 -- following options are the default
 -- each of these are documented in `:help nvim-tree.OPTION_NAME`
 require "nvim-tree".setup {
@@ -47,9 +48,8 @@ require "nvim-tree".setup {
     }
   }
 }
+EOF
 
-vim.api.nvim_exec(
-  [[
 let g:nvim_tree_gitignore = 1 "0 by default
 let g:nvim_tree_quit_on_open = 1 "0 by default, closes the tree when you open a file
 let g:nvim_tree_indent_markers = 0 "0 by default, this option shows indent markers when folders are open
@@ -125,6 +125,3 @@ set termguicolors " this variable must be enabled for colors to be applied prope
 
 " a list of groups can be found at `:help nvim_tree_highlight`
 highlight NvimTreeFolderIcon guibg=blue
-]],
-  true
-)
