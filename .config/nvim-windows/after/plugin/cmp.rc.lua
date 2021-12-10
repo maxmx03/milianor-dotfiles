@@ -5,7 +5,7 @@ local cmp = require "cmp"
 -- lspkind
 local lspkind = require "lspkind"
 -- friendly snippets
-require("luasnip/loaders/from_vscode").load()
+require("luasnip/loaders/from_vscode").lazy_load()
 
 cmp.setup {
   snippet = {

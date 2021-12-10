@@ -46,7 +46,8 @@ else
   print("Unsupported system for sumneko")
 end
 
-local sumneko_root_path = "C:/Users/maxma/lua-language-server"
+local langservers_root = "C:/Users/maxma/.config/langservers"
+local sumneko_root_path = langservers_root .. "/lua-language-server"
 local sumneko_binary = sumneko_root_path .. "/bin/" .. system_name .. "/lua-language-server"
 
 local runtime_path = vim.split(package.path, ";")
@@ -65,9 +66,13 @@ local function cmdconfig(lsp)
   if (lsp == "cssls") then
     return {"vscode-css-language-server.cmd", "--stdio"}
   end
+
+  if (lsp == "intelephense") then
+    return {"intelephense.cmd", "--stdio"}
+  end
 end
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = {"pyright", "tsserver", "sumneko_lua", "html", "cssls", "vuels"}
+local servers = {"pyright", "tsserver", "sumneko_lua", "html", "cssls", "vuels", "intelephense"}
 for _, lsp in ipairs(servers) do
   if (lsp == "sumneko_lua") then
     nvim_lsp[lsp].setup {
