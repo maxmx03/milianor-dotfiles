@@ -70,9 +70,13 @@ local function cmdconfig(lsp)
   if (lsp == "intelephense") then
     return {"intelephense.cmd", "--stdio"}
   end
+
+  if (lsp == "jsonls") then
+    return {"vscode-json-language-server.cmd", "--stdio"}
+  end
 end
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = {"pyright", "tsserver", "sumneko_lua", "html", "cssls", "vuels", "intelephense"}
+local servers = {"pyright", "tsserver", "sumneko_lua", "html", "cssls", "vuels", "jsonls", "intelephense"}
 for _, lsp in ipairs(servers) do
   if (lsp == "sumneko_lua") then
     nvim_lsp[lsp].setup {
