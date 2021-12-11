@@ -9,7 +9,6 @@ Plug 'mattn/emmet-vim'
 " Import size
 Plug 'yardnsm/vim-import-cost', { 'do': 'npm install --production' }
 
-
 if has("nvim")
   " Color theme
   Plug 'folke/tokyonight.nvim', { 'branch': 'main' }

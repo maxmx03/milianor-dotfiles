@@ -144,11 +144,11 @@ require("formatter").setup(
           }
         end
       },
-      java = {
+      php = {
         function()
           return {
-            exe = "java",
-            args = {"-jar", os.getenv("HOME") .. "/.local/jars/google-java-format.jar", vim.api.nvim_buf_get_name(0)},
+            exe = "npx prettier",
+            args = {"--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), "--single-quote"},
             stdin = true
           }
         end
@@ -161,7 +161,7 @@ vim.api.nvim_exec(
   [[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePost *.js,*.ts,*.jsx,*.tsx,*.json,*.css,*.scss,*.graphql,*.prisma,*.markdown,*.yaml,*.html,*.py,*.lua,*.java FormatWrite
+  autocmd BufWritePost *.js,*.ts,*.jsx,*.tsx,*.json,*.css,*.scss,*.graphql,*.prisma,*.markdown,*.yaml,*.html,*.py,*.lua,*.php FormatWrite
 augroup END
 ]],
   true
