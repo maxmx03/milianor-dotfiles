@@ -60,17 +60,12 @@ capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 local function cmdconfig(servers)
   local cmd = {}
-  for _, value1 in pairs(servers.document_config) do
-    for index2, value2 in pairs(value1) do
-      if (index2 == "cmd") then
-        for key, value in pairs(value2) do
-          if (key == 1 and string.find(value, ".cmd") == nil) then
-            cmd[key] = value .. ".cmd"
-          else
-            cmd[key] = value
-          end
-        end
-      end
+
+  for key, value in pairs(servers.document_config.default_config.cmd) do
+    if (key == 1 and string.find(value, ".cmd") == nil) then
+      cmd[key] = value .. ".cmd"
+    else
+      cmd[key] = value
     end
   end
 
