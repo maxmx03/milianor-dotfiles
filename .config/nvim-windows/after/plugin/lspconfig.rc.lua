@@ -58,25 +58,36 @@ table.insert(runtime_path, "lua/?/init.lua")
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
-local function cmdconfig(lsp)
-  if (lsp == "html") then
-    return {"vscode-" .. lsp .. "-language-server.cmd", "--stdio"}
+local function cmdconfig(servers)
+  local cmd = {}
+  for _, value1 in pairs(servers.document_config) do
+    for index2, value2 in pairs(value1) do
+      if (index2 == "cmd") then
+        for key, value in pairs(value2) do
+          if (key == 1 and string.find(value, ".cmd") == nil) then
+            cmd[key] = value .. ".cmd"
+          else
+            cmd[key] = value
+          end
+        end
+      end
+    end
   end
 
-  if (lsp == "cssls") then
-    return {"vscode-css-language-server.cmd", "--stdio"}
-  end
-
-  if (lsp == "intelephense") then
-    return {"intelephense.cmd", "--stdio"}
-  end
-
-  if (lsp == "jsonls") then
-    return {"vscode-json-language-server.cmd", "--stdio"}
-  end
+  return cmd
 end
+
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = {"pyright", "tsserver", "sumneko_lua", "html", "cssls", "vuels", "jsonls", "intelephense"}
+local servers = {
+  "pyright",
+  "tsserver",
+  "sumneko_lua",
+  "html",
+  "cssls",
+  "vuels",
+  "jsonls",
+  "intelephense"
+}
 for _, lsp in ipairs(servers) do
   if (lsp == "sumneko_lua") then
     nvim_lsp[lsp].setup {
@@ -112,7 +123,7 @@ for _, lsp in ipairs(servers) do
     }
   else
     nvim_lsp[lsp].setup {
-      cmd = cmdconfig(lsp),
+      cmd = cmdconfig(nvim_lsp[lsp]),
       on_attach = on_attach,
       flags = {
         debounce_text_changes = 150

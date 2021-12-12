@@ -9,6 +9,9 @@ Plug 'mattn/emmet-vim'
 " Import size
 Plug 'yardnsm/vim-import-cost', { 'do': 'npm install --production' }
 
+" Support for php blade
+Plug 'jwalton512/vim-blade'
+
 if has("nvim")
   " Color theme
   Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
