@@ -1,5 +1,5 @@
 set number
-set mouse=
+set mouse=a
 "Identention
 set autoindent
 set ai
@@ -20,6 +20,7 @@ nnoremap d "_d
 runtime plug.vim
 
 " Theme
+set termguicolors
 colorscheme tokyonight
 hi Normal guibg=NONE ctermbg=NONE
 

@@ -13,35 +13,19 @@ Plug 'yardnsm/vim-import-cost', { 'do': 'npm install --production' }
 Plug 'jwalton512/vim-blade'
 
 if has("nvim")
-  " Color theme
-  Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-
   " General
   Plug 'neovim/nvim-lspconfig'
-  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-  Plug 'kyazdani42/nvim-web-devicons'
-  Plug 'nvim-lualine/lualine.nvim'
-  Plug 'norcalli/nvim-colorizer.lua'
-  Plug 'kyazdani42/nvim-tree.lua'
   Plug 'mhartington/formatter.nvim'
-  Plug 'windwp/nvim-autopairs'
-  Plug 'windwp/nvim-ts-autotag'
-  Plug 'p00f/nvim-ts-rainbow'
-  Plug 'nvim-lua/plenary.nvim'
-  Plug 'nvim-telescope/telescope.nvim'
+ 
+  " Error Diagnostic
+  Plug 'folke/trouble.nvim'
 
-  "AutoCompletion
+ "AutoCompletion
   Plug 'hrsh7th/cmp-nvim-lsp'
   Plug 'hrsh7th/cmp-buffer'
   Plug 'hrsh7th/cmp-path'
   Plug 'hrsh7th/cmp-cmdline'
   Plug 'hrsh7th/nvim-cmp'
-
-  " Lsp-Kind
-  Plug 'onsails/lspkind-nvim'
-
-  "Diagnostics
-  Plug 'folke/trouble.nvim'
 
   " LuaSnip
   Plug 'L3MON4D3/LuaSnip'
@@ -49,6 +33,25 @@ if has("nvim")
 
   " Snippets for LuaSnip
   Plug 'rafamadriz/friendly-snippets'
+ 
+  " Visual improvement
+  Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+  Plug 'p00f/nvim-ts-rainbow'
+  Plug 'norcalli/nvim-colorizer.lua'
+  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+  Plug 'kyazdani42/nvim-web-devicons'
+  Plug 'nvim-lualine/lualine.nvim'
+  Plug 'onsails/lspkind-nvim'
+
+  " Auto pairs and tag
+  Plug 'windwp/nvim-autopairs'
+  Plug 'windwp/nvim-ts-autotag'
+
+  " File explorer
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim'
+  Plug 'kyazdani42/nvim-tree.lua'
+  Plug 'akinsho/bufferline.nvim'
 
   " Git Diffview
   Plug 'nvim-lua/plenary.nvim'
