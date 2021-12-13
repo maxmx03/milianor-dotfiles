@@ -23,6 +23,7 @@ Set-Alias ll ls
 Set-Alias grep findstr
 Set-Alias tig 'C:\Program Files\Git\usr\bin\tig.exe'
 Set-Alias less 'C:\Program Files\Git\usr\bin\less.exe'
+Set-Alias psql 'C:\Program Files\PostgreSQL\14\bin\psql.exe'
 
 # Utilities
 function which ($command) {
