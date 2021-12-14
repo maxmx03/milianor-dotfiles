@@ -1,4 +1,5 @@
 local nvim_lsp = require "lspconfig"
+local get_diagnostics = vim.lsp.diagnostic.get_all
 
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...)
@@ -62,7 +63,7 @@ local function cmdconfig(servers)
   local cmd = {}
 
   for key, value in pairs(servers.document_config.default_config.cmd) do
-    if (key == 1 and string.find(value, ".cmd") == nil) then
+    if (key == 3 and string.find(value, ".cmd") == nil) then
       cmd[key] = value .. ".cmd"
     else
       cmd[key] = value
