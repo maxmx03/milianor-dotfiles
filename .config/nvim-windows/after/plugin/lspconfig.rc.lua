@@ -59,16 +59,6 @@ table.insert(runtime_path, "lua/?/init.lua")
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
-local function cmdconfig(lsp)
-  local server = lsp.document_config.default_config.cmd
-
-  if (string.find(server[3], ".cmd") == nil) then
-    server[3] = string.format("%s.cmd", server[3])
-  end
-
-  return server
-end
-
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 local servers = {
   "pyright",
@@ -115,7 +105,6 @@ for _, lsp in ipairs(servers) do
     }
   else
     nvim_lsp[lsp].setup {
-      cmd = cmdconfig(nvim_lsp[lsp]),
       on_attach = on_attach,
       flags = {
         debounce_text_changes = 150
