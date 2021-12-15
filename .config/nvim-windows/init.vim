@@ -20,7 +20,7 @@ nnoremap d "_d
 runtime plug.vim
 
 " Theme
-set termguicolors
+set termguicolors 
 colorscheme tokyonight
 hi Normal guibg=NONE ctermbg=NONE
 

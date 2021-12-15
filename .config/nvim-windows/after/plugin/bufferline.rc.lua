@@ -1,6 +1,14 @@
-require("bufferline").setup {}
+require("bufferline").setup {
+  options = {
+    diagnostics = "nvim_lsp"
+  }
+}
 
-vim.api.nvim_exec([[
+vim.api.nvim_exec(
+  [[
 nnoremap <silent>b] :BufferLineCycleNext<CR>
 nnoremap <silent>b[ :BufferLineCyclePrev<CR>
-]], true)
+nnoremap <silent>bx :BufferLineCloseLeft<CR>
+]],
+  true
+)
