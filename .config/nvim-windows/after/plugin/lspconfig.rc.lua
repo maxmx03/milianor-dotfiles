@@ -72,7 +72,6 @@ local servers = {
   "tsserver",
   "eslint",
   "sumneko_lua",
-  "html",
   "cssls",
   "vuels",
   "jsonls",
@@ -122,5 +121,15 @@ for _, lsp in ipairs(servers) do
     }
   end
 end
+
+nvim_lsp.html.setup {
+  on_attach = on_attach,
+  filetypes = {"html", "htmldjango"},
+  flags = {
+    debounce_text_changes = 150
+  },
+  -- on_attach = my_custom_on_attach,
+  capabilities = capabilities
+}
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = "menuone,noselect"

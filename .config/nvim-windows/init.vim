@@ -32,7 +32,7 @@ nnoremap <F3> :quit<cr>
 au BufNewFile,BufRead *.prisma,*.graphql,*.graphqls,*.gql setfiletype graphql
 
 " Some Extensions need python to work
-let g:python3_host_prog = expand('C:/Users/maxma/AppData/Local/Microsoft/WindowsApps/')
+let g:python3_host_prog = expand('C:\Users\maxma\AppData\Local\Programs\Python\Python310\python.exe')
 
 if has('python')
   set pyx=2
