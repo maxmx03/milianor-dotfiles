@@ -82,8 +82,7 @@ local servers = {
   "sumneko_lua",
   "cssls",
   "vuels",
-  "jsonls",
-  "intelephense"
+  "jsonls"
 }
 for _, lsp in ipairs(servers) do
   if (lsp == "sumneko_lua") then
@@ -133,6 +132,16 @@ end
 nvim_lsp.html.setup {
   on_attach = on_attach,
   filetypes = {"html", "htmldjango"},
+  flags = {
+    debounce_text_changes = 150
+  },
+  -- on_attach = my_custom_on_attach,
+  capabilities = capabilities
+}
+
+nvim_lsp.intelephense.setup {
+  on_attach = on_attach,
+  filetypes = {"php", "blade"},
   flags = {
     debounce_text_changes = 150
   },
