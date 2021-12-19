@@ -1,5 +1,4 @@
 local nvim_lsp = require "lspconfig"
-local get_diagnostics = vim.lsp.diagnostic.get_all
 
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...)
@@ -48,6 +47,8 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_command [[autocmd! * <buffer>]]
     vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
     vim.api.nvim_command [[augroup END]]
+
+    vim.api.nvim_command [[ autocmd BufWritePost *.blade.php FormatWrite]]
   end
 end
 
@@ -141,12 +142,10 @@ nvim_lsp.html.setup {
 
 nvim_lsp.intelephense.setup {
   on_attach = on_attach,
-  filetypes = {"php", "blade"},
+  filetypes = {"php"},
   flags = {
     debounce_text_changes = 150
   },
   -- on_attach = my_custom_on_attach,
   capabilities = capabilities
 }
--- Set completeopt to have a better completion experience
-vim.o.completeopt = "menuone,noselect"

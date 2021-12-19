@@ -4,11 +4,13 @@ set mouse=a
 set autoindent
 set ai
 set si
+set tabstop=4
 set softtabstop=2 "number of spaces in tab when editing
 set shiftwidth=2 "number of spaces to use for autoindent
 
-"Identention on python
+"Identention on python and php
 autocmd FileType python setlocal shiftwidth=4 softtabstop=4
+autocmd FileType php setlocal shiftwidth=4 softtabstop=4
 
 " Tmux | Theme 
 set t_8f=^[[38;2;%lu;%lu;%lum

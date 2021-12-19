@@ -7,6 +7,9 @@ local lspkind = require "lspkind"
 -- friendly snippets
 require("luasnip/loaders/from_vscode").lazy_load()
 
+-- Set completeopt to have a better completion experience
+vim.o.completeopt = "menuone,noselect"
+
 cmp.setup {
   snippet = {
     expand = function(args)

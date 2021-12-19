@@ -154,29 +154,15 @@ require("formatter").setup(
           }
         end
       },
-      php = {
-        function()
-          return {
-            exe = "npx prettier",
-            args = {
-              "--stdin-filepath",
-              vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)),
-              "--single-quote"
-            },
-            stdin = true
-          }
-        end
-      },
       blade = {
         function()
           return {
-            exe = "npx prettier",
+            exe = "blade-formatter",
             args = {
-              "--stdin-filepath",
-              vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)),
-              "--single-quote"
+              "--write",
+              vim.fn.fnameescape(vim.api.nvim_buf_get_name(0))
             },
-            stdin = true
+            stdin = false
           }
         end
       }
