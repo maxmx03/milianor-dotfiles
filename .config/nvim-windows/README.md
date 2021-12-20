@@ -1,13 +1,13 @@
 # Neovim config by Milianor
 
-## requeriments
+## Requeriments
 - [neovim](https://neovim.io/)
 - [vim-plug](https://github.com/junegunn/vim-plug)
 - [node](https://nodejs.org/en/)
 - [python](https://www.python.org/downloads/)
 - [powershell](https://docs.microsoft.com/pt-br/powershell/scripting/overview?view=powershell-7.2)
 
-## how to install neovim
+## How to install neovim
 
 1. install [scoop](https://scoop.sh/) 
 
