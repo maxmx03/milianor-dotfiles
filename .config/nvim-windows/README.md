@@ -46,6 +46,12 @@ pip install pynvim autopep8
 ```
 
 5. install [sumneko](https://github.com/sumneko/lua-language-server) for lua
-
 - follow the instrutions [here](https://github.com/sumneko/lua-language-server/wiki/Build-and-Run)
+
+6. Place this config files to C:\Users\username\AppData\Local\nvim
+
+7. After install vim-plug, open neovim and install all the plugins with :PlugInstall
+- All plugins will be installed here C:\Users\maxma\AppData\Local\nvim-data
+
+
 
