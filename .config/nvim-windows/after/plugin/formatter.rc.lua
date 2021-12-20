@@ -1,170 +1,81 @@
-require("formatter").setup(
+local formatter = require("formatter")
+
+local filename = vim.fn.fnameescape(vim.api.nvim_buf_get_name(0))
+
+local function prettier_formatter()
+  return {
+    exe = "npx prettier",
+    args = {"--stdin-filepath", filename, "--single-quote"},
+    stdin = true
+  }
+end
+
+local function lua_formatter()
+  return {
+    exe = "luafmt",
+    args = {"--indent-count", 2, "--stdin"},
+    stdin = true
+  }
+end
+
+local function python_formatter()
+  return {
+    exe = "autopep8",
+    args = {
+      "--in-place --aggressive --aggressive",
+      filename
+    },
+    stdin = false
+  }
+end
+
+local function blade_formatter()
+  return {
+    exe = "blade-formatter",
+    args = {
+      "--write",
+      "--stdin",
+      filename
+    },
+    stdin = true
+  }
+end
+
+formatter.setup(
   {
     filetype = {
       lua = {
-        --luafmt
-        function()
-          return {
-            exe = "luafmt",
-            args = {"--indent-count", 2, "--stdin"},
-            stdin = true
-          }
-        end
+        lua_formatter
       },
       python = {
-        -- autopep8
-        function()
-          return {
-            exe = "python -m autopep8",
-            args = {
-              "--in-place --aggressive --aggressive",
-              vim.fn.fnameescape(vim.api.nvim_buf_get_name(0))
-            },
-            stdin = false
-          }
-        end
-      },
-      javascript = {
-        -- prettier
-        function()
-          return {
-            exe = "npx prettier",
-            args = {"--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), "--single-quote"},
-            stdin = true
-          }
-        end
-      },
-      typescript = {
-        -- prettier
-        function()
-          return {
-            exe = "npx prettier",
-            args = {"--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), "--single-quote"},
-            stdin = true
-          }
-        end
-      },
-      javascriptreact = {
-        --prettier
-        function()
-          return {
-            exe = "npx prettier",
-            args = {"--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), "--single-quote"},
-            stdin = true
-          }
-        end
-      },
-      typescriptreact = {
-        --prettier
-        function()
-          return {
-            exe = "npx prettier",
-            args = {"--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), "--single-quote"},
-            stdin = true
-          }
-        end
-      },
-      json = {
-        --prettier
-        function()
-          return {
-            exe = "npx prettier",
-            args = {"--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), "--single-quote"},
-            stdin = true
-          }
-        end
-      },
-      css = {
-        --prettier
-        function()
-          return {
-            exe = "npx prettier",
-            args = {"--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), "--single-quote"},
-            stdin = true
-          }
-        end
-      },
-      scss = {
-        --prettier
-        function()
-          return {
-            exe = "npx prettier",
-            args = {"--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), "--single-quote"},
-            stdin = true
-          }
-        end
-      },
-      markdown = {
-        --prettier
-        function()
-          return {
-            exe = "npx prettier",
-            args = {"--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), "--single-quote"},
-            stdin = true
-          }
-        end
-      },
-      graphql = {
-        --prettier
-        function()
-          return {
-            exe = "npx prettier",
-            args = {"--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), "--single-quote"},
-            stdin = true
-          }
-        end
-      },
-      prisma = {
-        --prettier
-        function()
-          return {
-            exe = "npx prettier",
-            args = {"--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), "--single-quote"},
-            stdin = true
-          }
-        end
-      },
-      yaml = {
-        --prettier
-        function()
-          return {
-            exe = "npx prettier",
-            args = {"--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), "--single-quote"},
-            stdin = true
-          }
-        end
+        python_formatter
       },
       html = {
-        --prettier
-        function()
-          return {
-            exe = "npx prettier",
-            args = {"--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), "--single-quote"},
-            stdin = true
-          }
-        end
+        prettier_formatter
       },
       htmldjango = {
-        --prettier
-        function()
-          return {
-            exe = "npx prettier",
-            args = {"--stdin-filepath", vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)), "--single-quote"},
-            stdin = true
-          }
-        end
+        prettier_formatter
+      },
+      css = {
+        prettier_formatter
+      },
+      scss = {
+        prettier_formatter
+      },
+      markdown = {
+        prettier_formatter
+      },
+      graphql = {
+        prettier_formatter
+      },
+      prisma = {
+        prettier_formatter
+      },
+      yaml = {
+        prettier_formatter
       },
       blade = {
-        function()
-          return {
-            exe = "blade-formatter",
-            args = {
-              "--write",
-              vim.fn.fnameescape(vim.api.nvim_buf_get_name(0))
-            },
-            stdin = false
-          }
-        end
+        blade_formatter
       }
     }
   }

@@ -35,20 +35,22 @@ local on_attach = function(client, bufnr)
 
   vim.api.nvim_command [[set fileformat=unix ]]
 
-  if client.name == "eslint" then
-    vim.api.nvim_command [[autocmd InsertLeave *.js,*.jsx,*.ts,*.tsx EslintFixAll]]
-  elseif client.name == "sumneko_lua" then
+  if client.resolved_capabilities.document_formatting then
+    if client.name == "eslint" then
+      vim.api.nvim_command [[autocmd InsertLeave *.js,*.jsx,*.ts,*.tsx EslintFixAll]]
+    else
+      vim.api.nvim_command [[augroup Format]]
+      vim.api.nvim_command [[autocmd! * <buffer>]]
+      vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
+      vim.api.nvim_command [[augroup END]]
+
+      vim.api.nvim_command [[ autocmd BufWritePost *.blade.php FormatWrite]]
+    end
+  else
     vim.api.nvim_command [[augroup Format]]
     vim.api.nvim_command [[autocmd! * <buffer>]]
     vim.api.nvim_command [[autocmd BufWritePost <buffer> FormatWrite]]
     vim.api.nvim_command [[augroup END]]
-  else
-    vim.api.nvim_command [[augroup Format]]
-    vim.api.nvim_command [[autocmd! * <buffer>]]
-    vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
-    vim.api.nvim_command [[augroup END]]
-
-    vim.api.nvim_command [[ autocmd BufWritePost *.blade.php FormatWrite]]
   end
 end
 
