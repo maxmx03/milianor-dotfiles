@@ -32,8 +32,8 @@ require "nvim-tree".setup {
     args = {}
   },
   filters = {
-    dotfiles = false,
-    custom = {}
+    dotfiles = true,
+    custom = {"node_modules"}
   },
   git = {
     enable = true,
