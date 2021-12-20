@@ -8,16 +8,9 @@ set tabstop=4
 set softtabstop=2 "number of spaces in tab when editing
 set shiftwidth=2 "number of spaces to use for autoindent
 
-"Identention on python and php
-autocmd FileType python setlocal shiftwidth=4 softtabstop=4
-autocmd FileType php setlocal shiftwidth=4 softtabstop=4
-
 " Tmux | Theme 
 set t_8f=^[[38;2;%lu;%lu;%lum
 set t_8b=^[[48;2;%lu;%lu;%lum
-
-" Delete without yanke
-nnoremap d "_d
 
 runtime plug.vim
 
@@ -29,6 +22,12 @@ hi Normal guibg=NONE ctermbg=NONE
 " Mapping
 nnoremap <F2> :update<cr>
 nnoremap <F3> :quit<cr>
+" Delete without Yank
+nnoremap d "_d
+
+"Identention on python and php
+autocmd FileType python setlocal shiftwidth=4 softtabstop=4
+autocmd FileType php setlocal shiftwidth=4 softtabstop=4
 
 " Graphql
 au BufNewFile,BufRead *.prisma,*.graphql,*.graphqls,*.gql setfiletype graphql
