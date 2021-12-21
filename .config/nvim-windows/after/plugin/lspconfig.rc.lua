@@ -35,17 +35,17 @@ local on_attach = function(client, bufnr)
 
   vim.api.nvim_command [[set fileformat=unix ]]
 
-  if client.name == "tsserver" then
-    client.resolved_capabilities.document_formatting = false
-  end
-
   if client.resolved_capabilities.document_formatting then
-    vim.api.nvim_command [[augroup Format]]
-    vim.api.nvim_command [[autocmd! * <buffer>]]
-    vim.api.nvim_command [[autocmd BufWritePost <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
-    vim.api.nvim_command [[augroup END]]
+    if client.name == "eslint" then
+      vim.api.nvim_command [[autocmd InsertLeave *.js,*.jsx,*.ts,*.tsx EslintFixAll]]
+    else
+      vim.api.nvim_command [[augroup Format]]
+      vim.api.nvim_command [[autocmd! * <buffer>]]
+      vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
+      vim.api.nvim_command [[augroup END]]
 
-    vim.api.nvim_command [[ autocmd BufWritePost *.blade.php FormatWrite]]
+      vim.api.nvim_command [[ autocmd BufWritePost *.blade.php FormatWrite]]
+    end
   else
     vim.api.nvim_command [[augroup Format]]
     vim.api.nvim_command [[autocmd! * <buffer>]]
@@ -79,8 +79,9 @@ local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protoco
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 local servers = {
   "pyright",
-  "sumneko_lua",
   "tsserver",
+  "eslint",
+  "sumneko_lua",
   "cssls",
   "vuels",
   "jsonls"
@@ -148,84 +149,4 @@ nvim_lsp.intelephense.setup {
   },
   -- on_attach = my_custom_on_attach,
   capabilities = capabilities
-}
-
-nvim_lsp.diagnosticls.setup {
-  on_attach = on_attach,
-  filetypes = {
-    "javascript",
-    "javascriptreact",
-    "json",
-    "typescript",
-    "typescriptreact",
-    "html",
-    "htmldjango",
-    "css",
-    "less",
-    "scss",
-    "markdown",
-    "lua"
-  },
-  init_options = {
-    filetypes = {
-      javascript = "eslint",
-      javascriptreact = "eslint",
-      typescript = "eslint",
-      typescriptreact = "eslint"
-    },
-    linters = {
-      eslint = {
-        sourceName = "eslint",
-        command = "npx eslint",
-        rootPatterns = {".git"},
-        debounce = 100,
-        args = {
-          "--stdin",
-          "--stdin-filename",
-          "%filepath",
-          "--format",
-          "json"
-        },
-        parseJson = {
-          errorsRoot = "[0].messages",
-          line = "line",
-          column = "column",
-          endLine = "endLine",
-          endColumn = "endColumn",
-          message = "${message} [${ruleId}]",
-          security = "severity"
-        },
-        securities = {
-          [2] = "error",
-          [1] = "warning"
-        }
-      }
-    },
-    formatters = {
-      prettier = {
-        command = "prettier",
-        rootPatterns = {".git"},
-        args = {"--stdin", "--stdin-filepath", "%filename"}
-      },
-      luafmt = {
-        command = "luafmt",
-        rootPatterns = {".git"},
-        args = {"--indent-count", 2, "--stdin", "%filename"}
-      }
-    },
-    formatFiletypes = {
-      html = "prettier",
-	  htmldjango = "prettier",
-      css = "prettier",
-      javascript = "prettier",
-      javascriptreact = "prettier",
-      json = "prettier",
-      scss = "prettier",
-      less = "prettier",
-      typescript = "prettier",
-      typescriptreact = "prettier",
-      markdown = "prettier",
-      lua = "luafmt"
-    }
-  }
 }
