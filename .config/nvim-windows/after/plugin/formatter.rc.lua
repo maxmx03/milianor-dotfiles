@@ -1,11 +1,11 @@
 local formatter = require("formatter")
 
-local filename = vim.fn.fnameescape(vim.api.nvim_buf_get_name(0))
-
 local function prettier_formatter()
+  local filename = vim.fn.fnameescape(vim.api.nvim_buf_get_name(0))
+
   return {
-    exe = "npx prettier",
-    args = {"--stdin-filepath", filename, "--single-quote"},
+    exe = "prettier",
+    args = {"--stdin-filepath", filename},
     stdin = true
   }
 end
@@ -19,6 +19,8 @@ local function lua_formatter()
 end
 
 local function python_formatter()
+  local filename = vim.fn.fnameescape(vim.api.nvim_buf_get_name(0))
+
   return {
     exe = "autopep8",
     args = {
@@ -30,6 +32,8 @@ local function python_formatter()
 end
 
 local function blade_formatter()
+  local filename = vim.fn.fnameescape(vim.api.nvim_buf_get_name(0))
+
   return {
     exe = "blade-formatter",
     args = {
@@ -54,6 +58,18 @@ formatter.setup(
         prettier_formatter
       },
       htmldjango = {
+        prettier_formatter
+      },
+      javascript = {
+        prettier_formatter
+      },
+      javascriptreact = {
+        prettier_formatter
+      },
+      typescript = {
+        prettier_formatter
+      },
+      typescriptreact = {
         prettier_formatter
       },
       css = {

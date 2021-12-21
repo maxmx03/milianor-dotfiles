@@ -35,16 +35,17 @@ local on_attach = function(client, bufnr)
 
   vim.api.nvim_command [[set fileformat=unix ]]
 
+  if client.name == "eslint" then
+    vim.api.nvim_command [[nnoremap <C-f> :EslintFixAll<CR> :update<CR>]]
+  end
+
   if client.resolved_capabilities.document_formatting then
-    if client.name == "eslint" then
-      vim.api.nvim_command [[autocmd InsertLeave *.js,*.jsx,*.ts,*.tsx EslintFixAll]]
-    else
+    if client.name == "intelephense" then
       vim.api.nvim_command [[augroup Format]]
       vim.api.nvim_command [[autocmd! * <buffer>]]
       vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
       vim.api.nvim_command [[augroup END]]
-
-      vim.api.nvim_command [[ autocmd BufWritePost *.blade.php FormatWrite]]
+      vim.api.nvim_command [[autocmd BufWritePost *.blade.php FormatWrite]]
     end
   else
     vim.api.nvim_command [[augroup Format]]
@@ -82,6 +83,7 @@ local servers = {
   "tsserver",
   "eslint",
   "sumneko_lua",
+  "intelephense",
   "cssls",
   "vuels",
   "jsonls"
@@ -134,16 +136,6 @@ end
 nvim_lsp.html.setup {
   on_attach = on_attach,
   filetypes = {"html", "htmldjango"},
-  flags = {
-    debounce_text_changes = 150
-  },
-  -- on_attach = my_custom_on_attach,
-  capabilities = capabilities
-}
-
-nvim_lsp.intelephense.setup {
-  on_attach = on_attach,
-  filetypes = {"php"},
   flags = {
     debounce_text_changes = 150
   },
