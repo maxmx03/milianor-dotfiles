@@ -17,13 +17,15 @@ Set-PSReadLineOption -PredictionViewStyle ListView
 Import-Module PSFzf
 Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f' -PSReadlineChordReverseHistory 'Ctrl+r'
 
+# Path
+$Env:Path += ';C:\Program Files\PostgreSQL\14\bin'
+
 # Alias
 Set-Alias vim nvim
-Set-Alias ll ls
 Set-Alias grep findstr
 Set-Alias tig 'C:\Program Files\Git\usr\bin\tig.exe'
 Set-Alias less 'C:\Program Files\Git\usr\bin\less.exe'
-Set-Alias psql 'C:\Program Files\PostgreSQL\14\bin\psql.exe'
+# Set-Alias psql 'C:\Program Files\PostgreSQL\14\bin\psql.exe'
 
 # Utilities
 function which ($command) {
@@ -37,4 +39,12 @@ function touch ($command) {
 
 function open ($command) {
     explorer $command
+}
+
+function ll ($command) {
+    ls -Force $command
+}
+
+function search($command, $path) {
+    ls $command -Force -Recurse -Path $path -ErrorAction SilentlyContinue
 }
