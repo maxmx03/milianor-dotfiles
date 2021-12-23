@@ -9,13 +9,14 @@ Plug 'mattn/emmet-vim'
 " Import size
 Plug 'yardnsm/vim-import-cost', { 'do': 'npm install --production' }
 
-" Support for php blade
+" Syntax
 Plug 'jwalton512/vim-blade'
 
 if has("nvim")
   " General
   Plug 'neovim/nvim-lspconfig'
   Plug 'mhartington/formatter.nvim'
+  Plug 'ray-x/lsp_signature.nvim'
  
   " Error Diagnostic
   Plug 'folke/trouble.nvim'

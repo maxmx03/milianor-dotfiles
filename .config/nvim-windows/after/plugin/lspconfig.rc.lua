@@ -1,4 +1,5 @@
 local nvim_lsp = require "lspconfig"
+local lspsignature = require "lsp_signature"
 
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...)
@@ -33,14 +34,14 @@ local on_attach = function(client, bufnr)
   buf_set_keymap("n", "<space>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
   buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 
-  vim.api.nvim_command [[set fileformat=unix ]]
-
   if client.name == "eslint" then
     vim.api.nvim_command [[nnoremap <C-f> :EslintFixAll<CR> :update<CR>]]
   end
 
   if client.resolved_capabilities.document_formatting then
     if client.name == "intelephense" then
+      vim.api.nvim_command [[set fileformat=unix ]]
+
       vim.api.nvim_command [[augroup Format]]
       vim.api.nvim_command [[autocmd! * <buffer>]]
       vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
@@ -48,11 +49,23 @@ local on_attach = function(client, bufnr)
       vim.api.nvim_command [[autocmd BufWritePost *.blade.php FormatWrite]]
     end
   else
+    vim.api.nvim_command [[set fileformat=dos ]]
+
     vim.api.nvim_command [[augroup Format]]
     vim.api.nvim_command [[autocmd! * <buffer>]]
     vim.api.nvim_command [[autocmd BufWritePost <buffer> FormatWrite]]
     vim.api.nvim_command [[augroup END]]
   end
+
+  lspsignature.on_attach(
+    {
+      bind = true,
+      handler_opts = {
+        border = "rounded"
+      }
+    },
+    bufnr
+  )
 end
 
 local system_name
