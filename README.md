@@ -21,10 +21,10 @@
 ## Fonts
 - [Nerd Fonts](https://www.nerdfonts.com/)
 ### Fonts recommendations
-1. FiraCode Nerd Font **used in ubuntu (wsl)**
+1. FiraCode Nerd Font
 2. Sauce Code Pro Nerd Font
 3. Hack Nerd Font
-4. VictorMono Nerd Font **used in Powershell**
+4. VictorMono Nerd Font
 
 ## Themes/Colors - Tokyo Night
 - [Neovim/Fish](https://github.com/folke/tokyonight.nvim)
