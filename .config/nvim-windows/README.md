@@ -19,7 +19,8 @@ iwr -useb get.scoop.sh | iex
 2. install neovim/mingw/nvm
 
 ```powershell
-scoop install neovim mingw nvm
+scoop bucket add versions
+scoop install neovim-nightly mingw nvm
 ```
 
 3. install node.js
