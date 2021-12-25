@@ -1,10 +1,5 @@
 local nvim_lsp = require "lspconfig"
--- luasnip setup
-local luasnip = require "luasnip"
--- nvim-cmp setup
-local cmp = require "cmp"
--- friendly snippets
-require("luasnip/loaders/from_vscode").lazy_load()
+local lspsignature = require "lsp_signature"
 
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...)
@@ -38,9 +33,37 @@ local on_attach = function(client, bufnr)
   buf_set_keymap("n", "]d", "<cmd>lua vim.lsp.diagnostic.goto_next()<CR>", opts)
   buf_set_keymap("n", "<space>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
   buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+
+  if client.name == "eslint" then
+    vim.api.nvim_command [[nnoremap <C-f> :EslintFixAll<CR> :update<CR>]]
+  end
+
+  if client.resolved_capabilities.document_formatting then
+    if client.name == "intelephense" then
+      vim.api.nvim_command [[augroup Format]]
+      vim.api.nvim_command [[autocmd! * <buffer>]]
+      vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
+      vim.api.nvim_command [[augroup END]]
+      vim.api.nvim_command [[autocmd BufWritePost *.blade.php FormatWrite]]
+    end
+  else
+    vim.api.nvim_command [[augroup Format]]
+    vim.api.nvim_command [[autocmd! * <buffer>]]
+    vim.api.nvim_command [[autocmd BufWritePost <buffer> FormatWrite]]
+    vim.api.nvim_command [[augroup END]]
+  end
+
+  lspsignature.on_attach(
+    {
+      bind = true,
+      handler_opts = {
+        border = "rounded"
+      }
+    },
+    bufnr
+  )
 end
 
--- Lua
 local system_name
 if vim.fn.has("mac") == 1 then
   system_name = "macOS"
@@ -60,11 +83,19 @@ table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
 -- Add additional capabilities supported by nvim-cmp
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
-local servers = {"pyright", "tsserver", "sumneko_lua", "cssls", "html", "vuels"}
+local servers = {
+  "pyright",
+  "tsserver",
+  "eslint",
+  "sumneko_lua",
+  "intelephense",
+  "cssls",
+  "vuels",
+  "jsonls"
+}
 for _, lsp in ipairs(servers) do
   if (lsp == "sumneko_lua") then
     nvim_lsp[lsp].setup {
@@ -109,51 +140,13 @@ for _, lsp in ipairs(servers) do
     }
   end
 end
--- Set completeopt to have a better completion experience
-vim.o.completeopt = "menuone,noselect"
 
-cmp.setup {
-  snippet = {
-    expand = function(args)
-      require("luasnip").lsp_expand(args.body)
-    end
+nvim_lsp.html.setup {
+  on_attach = on_attach,
+  filetypes = {"html", "htmldjango"},
+  flags = {
+    debounce_text_changes = 150
   },
-  mapping = {
-    ["<C-p>"] = cmp.mapping.select_prev_item(),
-    ["<C-n>"] = cmp.mapping.select_next_item(),
-    ["<C-d>"] = cmp.mapping.scroll_docs(-4),
-    ["<C-f>"] = cmp.mapping.scroll_docs(4),
-    ["<C-Space>"] = cmp.mapping.complete(),
-    ["<C-e>"] = cmp.mapping.close(),
-    ["<CR>"] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Replace,
-      select = true
-    },
-    ["<Tab>"] = function(fallback)
-      if cmp.visible() then
-        cmp.select_next_item()
-      elseif luasnip.expand_or_jumpable() then
-        vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-expand-or-jump", true, true, true), "")
-      else
-        fallback()
-      end
-    end,
-    ["<S-Tab>"] = function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif luasnip.jumpable(-1) then
-        vim.fn.feedkeys(vim.api.nvim_replace_termcodes("<Plug>luasnip-jump-prev", true, true, true), "")
-      else
-        fallback()
-      end
-    end
-  },
-  sources = {
-    {name = "nvim_lsp"},
-    {name = "luasnip"},
-    {name = "cmp_tabnine"},
-    {name = "path"},
-    {name = "buffer"},
-    {name = "cmdline"}
-  }
+  -- on_attach = my_custom_on_attach,
+  capabilities = capabilities
 }
