@@ -72,6 +72,9 @@ formatter.setup(
       typescriptreact = {
         prettier_formatter
       },
+      json = {
+        prettier_formatter
+      },
       css = {
         prettier_formatter
       },

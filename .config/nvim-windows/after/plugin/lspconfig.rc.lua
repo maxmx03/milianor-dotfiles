@@ -38,19 +38,19 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_command [[nnoremap <C-f> :EslintFixAll<CR> :update<CR>]]
   end
 
-  if client.resolved_capabilities.document_formatting then
-    if client.name == "intelephense" then
-      vim.api.nvim_command [[set fileformat=unix ]]
+  if client.name ~= "intelephense" then
+    client.resolved_capabilities.document_formatting = false
+  end
 
-      vim.api.nvim_command [[augroup Format]]
-      vim.api.nvim_command [[autocmd! * <buffer>]]
-      vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
-      vim.api.nvim_command [[augroup END]]
-      vim.api.nvim_command [[autocmd BufWritePost *.blade.php FormatWrite]]
-    end
+  if client.resolved_capabilities.document_formatting then
+    vim.api.nvim_command [[set fileformat=unix ]]
+    vim.api.nvim_command [[augroup Format]]
+    vim.api.nvim_command [[autocmd! * <buffer>]]
+    vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
+    vim.api.nvim_command [[augroup END]]
+    vim.api.nvim_command [[autocmd BufWritePost *.blade.php FormatWrite]]
   else
     vim.api.nvim_command [[set fileformat=dos ]]
-
     vim.api.nvim_command [[augroup Format]]
     vim.api.nvim_command [[autocmd! * <buffer>]]
     vim.api.nvim_command [[autocmd BufWritePost <buffer> FormatWrite]]

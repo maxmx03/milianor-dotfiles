@@ -6,9 +6,6 @@ call plug#begin()
 " Emmet - HTML
 Plug 'mattn/emmet-vim'
 
-" Import size
-Plug 'yardnsm/vim-import-cost', { 'do': 'npm install --production' }
-
 " Syntax
 Plug 'jwalton512/vim-blade'
 
