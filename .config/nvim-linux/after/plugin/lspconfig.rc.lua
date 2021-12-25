@@ -34,18 +34,39 @@ local on_attach = function(client, bufnr)
   buf_set_keymap("n", "<space>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
   buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 
+  local signs = {Error = "", Warn = "", Hint = "", Info = ""}
+
+  vim.diagnostic.config(
+    {
+      virtual_text = {
+        prefix = signs.Warn
+      }
+    }
+  )
+
+  for type, icon in pairs(signs) do
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, {text = icon, texthl = hl, numhl = hl})
+  end
+
+  if client.name == "eslint" then
+    vim.api.nvim_command [[nnoremap <C-f> :EslintFixAll<CR> :update<CR>]]
+  end
+
+  if client.name ~= "intelephense" then
+    client.resolved_capabilities.document_formatting = false
+  end
+
   if client.name == "eslint" then
     vim.api.nvim_command [[nnoremap <C-f> :EslintFixAll<CR> :update<CR>]]
   end
 
   if client.resolved_capabilities.document_formatting then
-    if client.name == "intelephense" then
-      vim.api.nvim_command [[augroup Format]]
-      vim.api.nvim_command [[autocmd! * <buffer>]]
-      vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
-      vim.api.nvim_command [[augroup END]]
-      vim.api.nvim_command [[autocmd BufWritePost *.blade.php FormatWrite]]
-    end
+    vim.api.nvim_command [[augroup Format]]
+    vim.api.nvim_command [[autocmd! * <buffer>]]
+    vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
+    vim.api.nvim_command [[augroup END]]
+    vim.api.nvim_command [[autocmd BufWritePost *.blade.php FormatWrite]]
   else
     vim.api.nvim_command [[augroup Format]]
     vim.api.nvim_command [[autocmd! * <buffer>]]
