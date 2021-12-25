@@ -34,6 +34,21 @@ local on_attach = function(client, bufnr)
   buf_set_keymap("n", "<space>q", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", opts)
   buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 
+  local signs = {Error = "", Warn = "", Hint = "", Info = ""}
+
+  vim.diagnostic.config(
+    {
+      virtual_text = {
+        prefix = signs.Warn
+      }
+    }
+  )
+
+  for type, icon in pairs(signs) do
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, {text = icon, texthl = hl, numhl = hl})
+  end
+
   if client.name == "eslint" then
     vim.api.nvim_command [[nnoremap <C-f> :EslintFixAll<CR> :update<CR>]]
   end
