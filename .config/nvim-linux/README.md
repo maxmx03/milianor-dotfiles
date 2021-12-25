@@ -30,7 +30,7 @@ archlinux
 sudo pacman -S python3 lua
 ```
 
-* if anything goes wrong read your distro documentation *
+*if anything goes wrong read your distro documentation*
 
 ## How to install neovim
 
