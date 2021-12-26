@@ -13,11 +13,7 @@ set t_8f=^[[38;2;%lu;%lu;%lum
 set t_8b=^[[48;2;%lu;%lu;%lum
 
 runtime plug.vim
-
-" Theme
-set termguicolors 
-colorscheme tokyonight
-hi Normal guibg=NONE ctermbg=NONE
+runtime colors/config.lua
 
 " Mapping
 nnoremap <F2> :update<cr>
