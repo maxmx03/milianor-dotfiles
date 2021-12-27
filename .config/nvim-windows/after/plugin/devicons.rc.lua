@@ -52,20 +52,40 @@ devicons.set_icon {
     color = jscolor,
     name = "javascriptspec"
   },
+  ["spec.jsx"] = {
+    icon = "",
+    color = jscolor,
+    name = "javascriptreactspec"
+  },
   ["spec.ts"] = {
     icon = "",
     color = tscolor,
     name = "typescriptspec"
+  },
+  ["spec.tsx"] = {
+    icon = "",
+    color = tscolor,
+    name = "typescriptreactspec"
   },
   ["test.js"] = {
     icon = "",
     color = jscolor,
     name = "javascripttest"
   },
+  ["test.jsx"] = {
+    icon = "",
+    color = jscolor,
+    name = "javascriptreacttest"
+  },
   ["test.ts"] = {
     icon = "",
     color = tscolor,
     name = "typescripttest"
+  },
+  ["test.tsx"] = {
+    icon = "",
+    color = tscolor,
+    name = "typescriptreacttest"
   },
   ["component.html"] = {
     icon = "",
