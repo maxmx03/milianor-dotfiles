@@ -51,6 +51,8 @@ local on_attach = function(client, bufnr)
     vim.fn.sign_define(hl, {text = icon, texthl = hl, numhl = hl})
   end
 
+  vim.api.nvim_command [[ set ff=unix ]]
+
   if client.name == "eslint" then
     vim.api.nvim_command [[nnoremap <C-f> :EslintFixAll<CR> :update<CR>]]
   end
@@ -62,7 +64,6 @@ local on_attach = function(client, bufnr)
   end
 
   if client.resolved_capabilities.document_formatting then
-    vim.api.nvim_command [[ set ff=unix ]]
     vim.api.nvim_command [[augroup Format]]
     vim.api.nvim_command [[autocmd! * <buffer>]]
     vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
