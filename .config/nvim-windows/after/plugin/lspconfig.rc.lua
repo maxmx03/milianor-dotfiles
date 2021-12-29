@@ -62,14 +62,13 @@ local on_attach = function(client, bufnr)
   end
 
   if client.resolved_capabilities.document_formatting then
-    vim.api.nvim_command [[set fileformat=unix ]]
+    vim.api.nvim_command [[ set ff=unix ]]
     vim.api.nvim_command [[augroup Format]]
     vim.api.nvim_command [[autocmd! * <buffer>]]
     vim.api.nvim_command [[autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
     vim.api.nvim_command [[augroup END]]
     vim.api.nvim_command [[autocmd BufWritePost *.blade.php FormatWrite]]
   else
-    vim.api.nvim_command [[set fileformat=dos ]]
     vim.api.nvim_command [[augroup Format]]
     vim.api.nvim_command [[autocmd! * <buffer>]]
     vim.api.nvim_command [[autocmd BufWritePost <buffer> FormatWrite]]
