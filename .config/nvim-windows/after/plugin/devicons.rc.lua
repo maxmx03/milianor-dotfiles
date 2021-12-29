@@ -11,117 +11,50 @@ local tscolor, csscolor, gitcolor, angularcolor, karmacolor, jsoncolor =
   "#17D7A0",
   "#3E7C17"
 
-devicons.set_icon {
-  html = {
-    icon = "",
-    color = htmlcolor,
-    name = "html"
-  },
-  css = {
-    icon = "",
-    color = csscolor,
-    name = "css"
-  },
-  ts = {
-    icon = tsicon,
-    color = tscolor,
-    name = "typescript"
-  },
-  ["package.json"] = {
-    icon = "",
-    color = jsoncolor,
-    name = "packagejson"
-  },
-  ["package-lock.json"] = {
-    icon = "",
-    color = jsoncolor,
-    name = "packagelockjson"
-  },
-  [".gitkeep"] = {
-    icon = "",
-    color = gitcolor,
-    name = "git"
-  },
-  [".gitignore"] = {
-    icon = "",
-    color = gitcolor,
-    name = "git"
-  },
-  ["spec.js"] = {
-    icon = "",
-    color = jscolor,
-    name = "javascriptspec"
-  },
-  ["spec.jsx"] = {
-    icon = "",
-    color = jscolor,
-    name = "javascriptreactspec"
-  },
-  ["spec.ts"] = {
-    icon = "",
-    color = tscolor,
-    name = "typescriptspec"
-  },
-  ["spec.tsx"] = {
-    icon = "",
-    color = tscolor,
-    name = "typescriptreactspec"
-  },
-  ["test.js"] = {
-    icon = "",
-    color = jscolor,
-    name = "javascripttest"
-  },
-  ["test.jsx"] = {
-    icon = "",
-    color = jscolor,
-    name = "javascriptreacttest"
-  },
-  ["test.ts"] = {
-    icon = "",
-    color = tscolor,
-    name = "typescripttest"
-  },
-  ["test.tsx"] = {
-    icon = "",
-    color = tscolor,
-    name = "typescriptreacttest"
-  },
-  ["component.html"] = {
-    icon = "",
-    color = htmlcolor,
-    name = "angularhtml"
-  },
-  ["component.ts"] = {
-    icon = "",
-    color = tscolor,
-    name = "angularts"
-  },
-  ["component.css"] = {
-    icon = "",
-    color = csscolor,
-    name = "angularcss"
-  },
-  ["module.ts"] = {
-    icon = "",
-    color = angularcolor,
-    name = "angularmodule"
-  },
-  ["service.ts"] = {
-    icon = "",
-    color = jscolor,
-    name = "angularservice"
-  },
-  ["angular.json"] = {
-    icon = "",
-    color = angularcolor,
-    name = "angularmodule"
-  },
-  ["karma.conf.js"] = {
-    icon = "",
-    color = karmacolor,
-    name = "karmaconfig"
+local htmlicon, cssicon, nodeicon, giticon, testicon, angularicon, karmaicon, webpackicon, babelicon =
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "",
+  "ﰩ",
+  ""
+
+local function iconConfig(icon, color, name)
+  return {
+    icon = icon,
+    color = color,
+    name = name
   }
+end
+
+devicons.set_icon {
+  html = iconConfig(htmlicon, htmlcolor, "html"),
+  css = iconConfig(cssicon, csscolor, "css"),
+  ts = iconConfig(tsicon, tscolor, "typescript"),
+  ["package.json"] = iconConfig(nodeicon, jsoncolor, "packagejson"),
+  ["package-lock.json"] = iconConfig(nodeicon, jsoncolor, "packagelockjson"),
+  [".gitkeep"] = iconConfig(nodeicon, gitcolor, "git"),
+  [".gitignore"] = iconConfig(giticon, gitcolor, "git"),
+  ["spec.js"] = iconConfig(testicon, jscolor, "javascriptspec"),
+  ["spec.jsx"] = iconConfig(testicon, jscolor, "javascriptreactspec"),
+  ["spec.ts"] = iconConfig(testicon, tscolor, "typescriptspec"),
+  ["spec.tsx"] = iconConfig(testicon, tscolor, "typescriptreactspec"),
+  ["test.js"] = iconConfig(testicon, jscolor, "javascripttest"),
+  ["test.jsx"] = iconConfig(testicon, jscolor, "javascriptreacttest"),
+  ["test.ts"] = iconConfig(testicon, tscolor, "typescripttest"),
+  ["test.tsx"] = iconConfig(testicon, tscolor, "typescriptreacttest"),
+  ["component.html"] = iconConfig(angularicon, htmlcolor, "angularhtml"),
+  ["component.ts"] = iconConfig(angularicon, tscolor, "angularts"),
+  ["component.css"] = iconConfig(angularicon, csscolor, "angularcss"),
+  ["module.ts"] = iconConfig(angularicon, angularcolor, "angularmode"),
+  ["service.ts"] = iconConfig(angularicon, jscolor, "angularservice"),
+  ["angular.json"] = iconConfig(angularicon, angularcolor, "angularjson"),
+  ["karma.conf.js"] = iconConfig(karmaicon, karmacolor, "karmaconfig"),
+  ["webpack.config.js"] = iconConfig(webpackicon, tscolor, "webpack"),
+  [".babelrc"] = iconConfig(babelicon, jscolor, "babel")
 }
 
 devicons.setup {

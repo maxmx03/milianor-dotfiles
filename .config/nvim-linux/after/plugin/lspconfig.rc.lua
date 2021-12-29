@@ -53,8 +53,10 @@ local on_attach = function(client, bufnr)
     vim.api.nvim_command [[nnoremap <C-f> :EslintFixAll<CR> :update<CR>]]
   end
 
-  if client.name ~= "intelephense" then
+  if client.name ~= "intelephense" and client.name ~= "vuels" then
     client.resolved_capabilities.document_formatting = false
+  else
+    client.resolved_capabilities.document_formatting = true
   end
 
   if client.name == "eslint" then
@@ -170,4 +172,33 @@ nvim_lsp.html.setup {
   },
   -- on_attach = my_custom_on_attach,
   capabilities = capabilities
+}
+
+nvim_lsp.vuels.setup {
+  on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150
+  },
+  capabilities = capabilities,
+  init_options = {
+    config = {
+      vetur = {
+        ignoreProjectWarning = true,
+        format = {
+          enable = true,
+          defaultFormatter = {
+            css = "prettier",
+            js = "prettier",
+            ts = "prettier",
+            sass = "prettier",
+            scss = "prettier",
+            less = "prettier"
+          },
+          options = {
+            tabSize = 2
+          }
+        }
+      }
+    }
+  }
 }
