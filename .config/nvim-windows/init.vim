@@ -1,3 +1,4 @@
+set ff=unix
 set number
 set mouse=a
 "Identention

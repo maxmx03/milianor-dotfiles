@@ -52,8 +52,6 @@ local on_attach = function(client, bufnr)
     vim.fn.sign_define(hl, {text = icon, texthl = hl, numhl = hl})
   end
 
-  vim.api.nvim_command [[ set ff=unix ]]
-
   if client.name == "eslint" then
     vim.api.nvim_command [[nnoremap <C-f> :EslintFixAll<CR> :update<CR>]]
   end
