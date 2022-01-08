@@ -37,3 +37,6 @@ elseif has('python3')
   set pyx=3
 endif
 
+function Replace(current, new_value)
+  exe '%s/' . a:current . '/' . a:new_value . '/g'
+endfunction

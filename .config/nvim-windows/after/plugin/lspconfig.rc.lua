@@ -1,8 +1,6 @@
 local nvim_lsp = require "lspconfig"
 local lspsignature = require "lsp_signature"
 
-vim.lsp.set_log_level("debug")
-
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...)
     vim.api.nvim_buf_set_keymap(bufnr, ...)
@@ -82,7 +80,8 @@ local on_attach = function(client, bufnr)
       bind = true,
       handler_opts = {
         border = "rounded"
-      }
+      },
+      auto_close_after = 1
     },
     bufnr
   )
@@ -134,7 +133,7 @@ for _, lsp in ipairs(servers) do
         Lua = {
           runtime = {
             -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-            version = "Lua 5.4",
+            version = "LuaJIT",
             -- Setup your lua path
             path = runtime_path
           },
