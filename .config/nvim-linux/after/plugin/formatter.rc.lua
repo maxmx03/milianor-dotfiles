@@ -1,101 +1,113 @@
 local formatter = require("formatter")
 
-local function prettier_formatter()
-  local filename = vim.fn.fnameescape(vim.api.nvim_buf_get_name(0))
-
-  return {
-    exe = "prettier",
-    args = {"--stdin-filepath", filename},
-    stdin = true
-  }
-end
-
-local function lua_formatter()
-  return {
-    exe = "luafmt",
-    args = {"--indent-count", 2, "--stdin"},
-    stdin = true
-  }
-end
-
-local function python_formatter()
-  local filename = vim.fn.fnameescape(vim.api.nvim_buf_get_name(0))
-
-  return {
-    exe = "autopep8",
-    args = {
-      "--in-place --aggressive --aggressive",
-      filename
-    },
-    stdin = false
-  }
-end
-
-local function blade_formatter()
-  local filename = vim.fn.fnameescape(vim.api.nvim_buf_get_name(0))
-
-  return {
-    exe = "blade-formatter",
-    args = {
-      "--write",
-      "--stdin",
-      filename
-    },
-    stdin = true
-  }
-end
-
-formatter.setup(
-  {
-    filetype = {
-      lua = {
-        lua_formatter
-      },
-      python = {
-        python_formatter
-      },
-      html = {
-        prettier_formatter
-      },
-      htmldjango = {
-        prettier_formatter
-      },
-      javascript = {
-        prettier_formatter
-      },
-      javascriptreact = {
-        prettier_formatter
-      },
-      typescript = {
-        prettier_formatter
-      },
-      typescriptreact = {
-        prettier_formatter
-      },
-      json = {
-        prettier_formatter
-      },
-      css = {
-        prettier_formatter
-      },
-      scss = {
-        prettier_formatter
-      },
-      markdown = {
-        prettier_formatter
-      },
-      graphql = {
-        prettier_formatter
-      },
-      prisma = {
-        prettier_formatter
-      },
-      yaml = {
-        prettier_formatter
-      },
-      blade = {
-        blade_formatter
-      }
+Formatter = {
+  filename = function()
+    return vim.fn.fnameescape(vim.api.nvim_buf_get_name(0))
+  end,
+  prettier = function(self)
+    return {
+      function()
+        return {
+          exe = "prettier",
+          args = {"--stdin-filepath", self.filename()},
+          stdin = true
+        }
+      end
     }
-  }
-)
+  end,
+  luafmt = function()
+    return {
+      function()
+        return {
+          exe = "luafmt",
+          args = {"--indent-count", 2, "--stdin"},
+          stdin = true
+        }
+      end
+    }
+  end,
+  autopep8 = function(self)
+    return {
+      function()
+        return {
+          exe = "autopep8",
+          args = {
+            "--in-place --aggressive --aggressive",
+            self.filename()
+          },
+          stdin = false
+        }
+      end
+    }
+  end,
+  black = function(self)
+    return {
+      function()
+        return {
+          exe = "black",
+          args = {
+            "--stdin-filename",
+            self.filename()
+          },
+          stdin = false
+        }
+      end
+    }
+  end,
+  bladefmt = function(self)
+    return {
+      function()
+        return {
+          exe = "blade-formatter",
+          args = {
+            "--write",
+            "--stdin",
+            self.filename()
+          },
+          stdin = true
+        }
+      end
+    }
+  end,
+  setup = function(self, formatters)
+    local filetype = {}
+
+    for file, fmt in pairs(formatters) do
+      if fmt == "luafmt" then
+        filetype[file] = self.luafmt()
+      elseif fmt == "autopep8" then
+        filetype[file] = self:autopep8()
+      elseif fmt == "black" then
+        filetype[file] = self:black()
+      elseif fmt == "bladefmt" then
+        filetype[file] = self:bladefmt()
+      else
+        filetype[file] = self:prettier()
+      end
+    end
+
+    formatter.setup {
+      filetype = filetype
+    }
+  end
+}
+
+Formatter:setup {
+  lua = "luafmt",
+  python = "black",
+  htmldjango = "prettier",
+  javascript = "prettier",
+  javascriptreact = "prettier",
+  typescript = "prettier",
+  typescriptreact = "prettier",
+  html = "prettier",
+  css = "prettier",
+  scss = "prettier",
+  less = "prettier",
+  json = "prettier",
+  markdown = "prettier",
+  graphql = "prettier",
+  prisma = "prettier",
+  yaml = "prettier",
+  blade = "bladefmt"
+}
