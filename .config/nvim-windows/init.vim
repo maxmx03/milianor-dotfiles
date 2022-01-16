@@ -18,8 +18,6 @@ runtime colors/config.lua
 " Mapping
 nnoremap <F2> :update<cr>
 nnoremap <F3> :quit<cr>
-" Delete without Yank
-nnoremap d "_d
 
 "Identention on python and php
 autocmd FileType python setlocal shiftwidth=4 softtabstop=4

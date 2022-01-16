@@ -133,7 +133,7 @@ for _, lsp in ipairs(servers) do
         Lua = {
           runtime = {
             -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-            version = "LuaJIT",
+            version = "Lua 5.4",
             -- Setup your lua path
             path = runtime_path
           },

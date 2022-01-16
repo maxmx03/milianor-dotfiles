@@ -11,7 +11,7 @@ local tscolor, csscolor, gitcolor, angularcolor, karmacolor, jsoncolor =
   "#17D7A0",
   "#3E7C17"
 
-local htmlicon, cssicon, nodeicon, giticon, testicon, angularicon, karmaicon, webpackicon, babelicon =
+local htmlicon, cssicon, nodeicon, giticon, testicon, angularicon, karmaicon, webpackicon, babelicon, ttficon =
   "",
   "",
   "",
@@ -20,7 +20,8 @@ local htmlicon, cssicon, nodeicon, giticon, testicon, angularicon, karmaicon, we
   "",
   "",
   "ﰩ",
-  ""
+  "",
+  ""
 
 local function iconConfig(icon, color, name)
   return {
@@ -54,7 +55,8 @@ devicons.set_icon {
   ["angular.json"] = iconConfig(angularicon, angularcolor, "angularjson"),
   ["karma.conf.js"] = iconConfig(karmaicon, karmacolor, "karmaconfig"),
   ["webpack.config.js"] = iconConfig(webpackicon, tscolor, "webpack"),
-  [".babelrc"] = iconConfig(babelicon, jscolor, "babel")
+  [".babelrc"] = iconConfig(babelicon, jscolor, "babel"),
+  ttf = iconConfig(ttficon, angularcolor, "tff")
 }
 
 devicons.setup {
