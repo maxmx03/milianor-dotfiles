@@ -57,10 +57,9 @@ local on_attach = function(client, bufnr)
   if client.name ~= "intelephense" and client.name ~= "vuels" then
     client.resolved_capabilities.document_formatting = false
   else
+    vim.api.nvim_command [[set ff=unix]]
     client.resolved_capabilities.document_formatting = true
   end
-
-  vim.api.nvim_command [[set ff=unix]]
 
   if client.resolved_capabilities.document_formatting then
     vim.api.nvim_command [[augroup Format]]
@@ -172,33 +171,4 @@ nvim_lsp.html.setup {
   },
   -- on_attach = my_custom_on_attach,
   capabilities = capabilities
-}
-
-nvim_lsp.vuels.setup {
-  on_attach = on_attach,
-  flags = {
-    debounce_text_changes = 150
-  },
-  capabilities = capabilities,
-  init_options = {
-    config = {
-      vetur = {
-        ignoreProjectWarning = true,
-        format = {
-          enable = true,
-          defaultFormatter = {
-            css = "prettier",
-            js = "prettier",
-            ts = "prettier",
-            sass = "prettier",
-            scss = "prettier",
-            less = "prettier"
-          },
-          options = {
-            tabSize = 2
-          }
-        }
-      }
-    }
-  }
 }

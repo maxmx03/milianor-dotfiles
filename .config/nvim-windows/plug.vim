@@ -43,7 +43,6 @@ if has("nvim")
   Plug 'onsails/lspkind-nvim'
 
   " Auto pairs and tag
-  Plug 'windwp/nvim-autopairs'
   Plug 'windwp/nvim-ts-autotag'
 
   " File explorer
