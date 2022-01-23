@@ -116,8 +116,7 @@ local servers = {
   "sumneko_lua",
   "intelephense",
   "cssls",
-  "jsonls",
-  "vuels"
+  "jsonls"
 }
 for _, lsp in ipairs(servers) do
   if (lsp == "sumneko_lua") then
@@ -172,4 +171,33 @@ nvim_lsp.html.setup {
   },
   -- on_attach = my_custom_on_attach,
   capabilities = capabilities
+}
+
+nvim_lsp.vuels.setup {
+  on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150
+  },
+  capabilities = capabilities,
+  init_options = {
+    config = {
+      vetur = {
+        ignoreProjectWarning = true,
+        format = {
+          enable = true,
+          defaultFormatter = {
+            css = "prettier",
+            js = "prettier",
+            ts = "prettier",
+            sass = "prettier",
+            scss = "prettier",
+            less = "prettier"
+          },
+          options = {
+            tabSize = 2
+          }
+        }
+      }
+    }
+  }
 }
