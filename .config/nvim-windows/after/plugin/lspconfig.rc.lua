@@ -116,7 +116,8 @@ local servers = {
   "sumneko_lua",
   "intelephense",
   "cssls",
-  "jsonls"
+  "jsonls",
+  "vuels"
 }
 for _, lsp in ipairs(servers) do
   if (lsp == "sumneko_lua") then
