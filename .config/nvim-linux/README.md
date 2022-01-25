@@ -83,7 +83,7 @@ nvm install lts
 4. Install all dependencies
 
 ```bash
-npm i -g neovim pyright typescript tsserver vscode-langservers-extracted intelephense vls
+npm i -g neovim pyright typescript typescript-language-server vscode-langservers-extracted intelephense vls
 ```
 
 ```bash
@@ -104,7 +104,7 @@ cd ~
 mkdir .config/nvim
 cd .config/nvim
 git clone 'https://github.com/maxmx03/dotfiles'
-cd dotfiles/.config.nvim-linux
+cd dotfiles/.config/nvim-linux
 cp -r * ~/.config/nvim
 ```
 
