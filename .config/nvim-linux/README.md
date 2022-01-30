@@ -73,7 +73,6 @@ sudo pacman -S python-pynvim
 
 For Other distros [download](https://github.com/neovim/neovim/releases/nightly) nvim.appimage
 
-
 3. Node version manager [here](https://github.com/nvm-sh/nvm)
 
 ```bash
