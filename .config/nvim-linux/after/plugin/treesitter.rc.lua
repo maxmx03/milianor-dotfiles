@@ -1,3 +1,9 @@
+local status = pcall(require, "nvim-treesitter")
+
+if (not status) then
+  return
+end
+
 require "nvim-treesitter.install".compilers = {"gcc"}
 
 require "nvim-treesitter.configs".setup {

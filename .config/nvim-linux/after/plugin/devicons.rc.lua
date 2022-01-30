@@ -1,4 +1,8 @@
-local devicons = require "nvim-web-devicons"
+local status, devicons = pcall(require, "nvim-web-devicons")
+
+if (not status) then
+  return
+end
 
 local _, jscolor = devicons.get_icon_color("index.js", "js")
 local tsicon, _ = devicons.get_icon_color("index.ts", "ts")

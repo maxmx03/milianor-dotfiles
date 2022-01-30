@@ -1,6 +1,10 @@
-local luasnip = require "luasnip"
-local cmp = require "cmp"
+local status1, luasnip = pcall(require, "luasnip")
+local status2, cmp = pcall(require, "cmp")
 require("luasnip/loaders/from_vscode").lazy_load()
+
+if (not status1) and (not status2) then
+  return
+end
 
 vim.api.nvim_command [[set completeopt=menu,menuone,noselect ]]
 

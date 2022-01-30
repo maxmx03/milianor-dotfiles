@@ -1,5 +1,9 @@
-local nvim_lsp = require "lspconfig"
-local lspsignature = require "lsp_signature"
+local status1, nvim_lsp = pcall(require, "lspconfig")
+local status2, lspsignature = pcall(require, "lsp_signature")
+
+if (not status1) and (not status2) then
+  return
+end
 
 local on_attach = function(client, bufnr)
   local function buf_set_keymap(...)
@@ -85,17 +89,6 @@ local on_attach = function(client, bufnr)
     },
     bufnr
   )
-end
-
-local system_name
-if vim.fn.has("mac") == 1 then
-  system_name = "macOS"
-elseif vim.fn.has("unix") == 1 then
-  system_name = "Linux"
-elseif vim.fn.has("win32") == 1 then
-  system_name = "Windows"
-else
-  print("Unsupported system for sumneko")
 end
 
 local sumneko_root_path = vim.fn.stdpath("cache") .. "/nlua/sumneko_lua/lua-language-server"

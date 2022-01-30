@@ -1,4 +1,10 @@
-require("trouble").setup {}
+local status, trouble = pcall(require, "trouble")
+
+if (not status) then
+  return
+end
+
+trouble.setup {}
 
 vim.api.nvim_exec(
   [[
