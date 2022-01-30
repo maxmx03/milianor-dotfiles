@@ -5,7 +5,7 @@ set PATH ~/.nvm/versions/node/v16.13.2/bin $PATH
 alias nvim "~/.local/share/nvim/nvim.appimage"
 alias vim nvim
 alias ls "exa --long --icons --tree --level=1 -a"
-alias ls ll
+alias ll ls
 alias python python3
 alias pe "python3 -m venv venv"
 alias pa ". venv/bin/activate.fish"
