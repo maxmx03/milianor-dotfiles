@@ -71,8 +71,7 @@ sudo pacman -S neovim gcc
 sudo pacman -S python-pynvim
 ```
 
-other distros
-[download nvim.appimage](https://github.com/neovim/neovim/releases/nightly) nvim.appimage
+For Other distros [download](https://github.com/neovim/neovim/releases/nightly) nvim.appimage
 
 
 3. Node version manager [here](https://github.com/nvm-sh/nvm)
@@ -115,4 +114,3 @@ nvim
 ```
 8. Inside neovim
 :PlugInstall
-
