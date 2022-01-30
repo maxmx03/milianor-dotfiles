@@ -1,29 +1,7 @@
 require "nvim-treesitter.install".compilers = {"gcc"}
 
 require "nvim-treesitter.configs".setup {
-  ensure_installed = {
-    "c",
-    "lua",
-    "javascript",
-    "tsx",
-    "json",
-    "css",
-    "scss",
-    "graphql",
-    "html",
-    "markdown",
-    "php",
-    "prisma",
-    "python",
-    "regex",
-    "vue",
-    "vim",
-    "yaml",
-    "typescript",
-    "turtle",
-    "jsdoc",
-    "json5"
-  },
+  ensure_installed = "maintained",
   sync_install = false,
   highlight = {
     enable = true,

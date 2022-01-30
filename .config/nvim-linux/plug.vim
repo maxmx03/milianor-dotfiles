@@ -12,6 +12,9 @@ Plug 'yardnsm/vim-import-cost', { 'do': 'npm install --production' }
 " Syntax
 Plug 'jwalton512/vim-blade'
 
+"Autopairs
+Plug 'jiangmiao/auto-pairs'
+
 if has("nvim")
   " General
   Plug 'neovim/nvim-lspconfig'
@@ -45,13 +48,13 @@ if has("nvim")
   Plug 'nvim-lualine/lualine.nvim'
 
   " Auto pairs and tag
-  Plug 'windwp/nvim-autopairs'
   Plug 'windwp/nvim-ts-autotag'
 
   " File explorer
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'
   Plug 'kyazdani42/nvim-tree.lua'
+  Plug 'akinsho/bufferline.nvim'
 
   " Git Diffview
   Plug 'nvim-lua/plenary.nvim'

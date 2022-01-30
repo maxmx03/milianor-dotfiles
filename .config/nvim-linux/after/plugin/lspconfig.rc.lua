@@ -99,7 +99,7 @@ else
 end
 
 local sumneko_root_path = vim.fn.stdpath("cache") .. "/nlua/sumneko_lua/lua-language-server"
-local sumneko_binary = sumneko_root_path .. "/bin/" .. system_name .. "/lua-language-server"
+local sumneko_binary = sumneko_root_path .. "/bin" .. "/lua-language-server"
 
 local runtime_path = vim.split(package.path, ";")
 table.insert(runtime_path, "lua/?.lua")
