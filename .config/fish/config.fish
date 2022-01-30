@@ -1,12 +1,14 @@
 set fish_greeting
 
+set PATH ~/.nvm/versions/node/v16.13.2/bin $PATH
 
-set PATH ~/.local/share/nvm/v16.13.0/bin $PATH
-set PATH ~/.local/share/lua-5.4.3/src $PATH
-
-
-alias ls "~/.local/share/exa/bin/exa --long --icons --tree --level=1 -a"
-
+alias nvim "~/.local/share/nvim/nvim.appimage"
+alias vim nvim
+alias ls "exa --long --icons --tree --level=1 -a"
+alias ls ll
+alias python python3
+alias pe "python3 -m venv venv"
+alias pa ". venv/bin/activate.fish"
 
 function search
   sudo find . -name $argv	
