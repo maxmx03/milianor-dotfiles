@@ -10,6 +10,12 @@ alias python python3
 alias pe "python3 -m venv venv"
 alias pa ". venv/bin/activate.fish"
 
+function fish_greeting
+  if not test "$TERM" = "screen-256color"
+	neofetch
+  end
+end
+
 function search
   sudo find . -name $argv	
 end
