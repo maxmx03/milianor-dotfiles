@@ -1,10 +1,22 @@
-format="$directory$time$all"
+format="$username$directory$all"
+right_format = "$time"
+
+[username]
+format = "[ $user]($style) in "
+style_user = "bold #FA4EAB"
+style_root = "bold #FA4EAB"
+show_always = true
 
 [directory]
-format = "[$path 🚀]($style) "
+format = "[$path]($style) "
+style = "bold #7dcfff"
+
+[character]
+success_symbol = "[](bold #9ece6a) "
+error_symbol = "[](bold #f7768e) "
 
 [time]
 disabled = false
-format = "[$time]($style) "
+format = "[ $time]($style) "
 use_12hr = true
-style = "white bold"
+style = "bold #7aa2f7"
