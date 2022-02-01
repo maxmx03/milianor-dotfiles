@@ -34,7 +34,7 @@ nvm install lts
 4. install all dependencies
 
 ```powershell
-npm i -g neovim pyright typescript tsserver vscode-langservers-extracted intelephense vls
+npm i -g neovim pyright typescript typescript-language-server vscode-langservers-extracted intelephense vls
 ```
 
 ````powershell
