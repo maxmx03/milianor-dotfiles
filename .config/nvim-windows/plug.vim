@@ -9,9 +9,6 @@ Plug 'mattn/emmet-vim'
 " Syntax
 Plug 'jwalton512/vim-blade'
 
-" Autopairs
-Plug 'jiangmiao/auto-pairs'
-
 if has("nvim")
   " General
   Plug 'neovim/nvim-lspconfig'
