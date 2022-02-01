@@ -6,6 +6,9 @@
 - [Tmux](https://linuxize.com/post/getting-started-with-tmux/)
 - [Fish](https://fishshell.com/)
 
+<img src="./terminal.png" />
+<img src="./tmux-neovim.png" />
+
 ## Windows configs
 - [Neovim](https://neovim.io/)
 - [Powershell 7](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.2)
@@ -37,3 +40,4 @@
 
 ### All credits to *Takuya Matsuyama*
 - [Website](https://www.craftz.dog/)
+
