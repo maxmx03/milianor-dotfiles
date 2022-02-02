@@ -1,8 +1,8 @@
 set fish_greeting
 
-set PATH ~/.nvm/versions/node/v16.13.2/bin $PATH
+set PATH ~/.nvm/versions/node/v16.13.2/bin/node $PATH
 
-alias nvim "~/.local/share/nvim/nvim.appimage"
+alias noisetorch "~/.local/bin/noisetorch"
 alias vim nvim
 alias ls "exa --long --icons --tree --level=1 -a"
 alias ll ls
@@ -28,5 +28,3 @@ function ide
     echo "You need to initialize tmux to run this command"
   end
 end
-
-starship init fish | source
