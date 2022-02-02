@@ -11,6 +11,7 @@ Plug 'yardnsm/vim-import-cost', { 'do': 'npm install --production' }
 
 " Syntax
 Plug 'jwalton512/vim-blade'
+
 if has("nvim")
   " General
   Plug 'neovim/nvim-lspconfig'
@@ -45,6 +46,7 @@ if has("nvim")
 
   " Auto pairs and tag
   Plug 'windwp/nvim-ts-autotag'
+  Plug 'windwp/nvim-autopairs'
 
   " File explorer
   Plug 'nvim-lua/plenary.nvim'

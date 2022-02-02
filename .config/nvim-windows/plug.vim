@@ -44,6 +44,7 @@ if has("nvim")
 
   " Auto pairs and tag
   Plug 'windwp/nvim-ts-autotag'
+  Plug 'windwp/nvim-autopairs'
 
   " File explorer
   Plug 'nvim-lua/plenary.nvim'
