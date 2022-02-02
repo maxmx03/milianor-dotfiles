@@ -1,6 +1,6 @@
 set fish_greeting
 
-set PATH ~/.nvm/versions/node/v16.13.2/bin/node $PATH
+set PATH ~/.nvm/versions/node/v16.13.2/bin $PATH
 
 alias noisetorch "~/.local/bin/noisetorch"
 alias vim nvim
