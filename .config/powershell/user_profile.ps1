@@ -19,13 +19,17 @@ Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f' -PSReadlineChordReverseHistory
 
 # Path
 $Env:Path += ';C:\Program Files\PostgreSQL\14\bin'
+$Env:Path += ';C:\Program Files\LOVE'
 
 # Alias
 Set-Alias vim nvim
 Set-Alias grep findstr
 Set-Alias tig 'C:\Program Files\Git\usr\bin\tig.exe'
 Set-Alias less 'C:\Program Files\Git\usr\bin\less.exe'
-# Set-Alias psql 'C:\Program Files\PostgreSQL\14\bin\psql.exe'
+Set-Alias g git
+Set-Alias p python
+Set-Alias d docker
+Set-Alias dc docker-compose
 
 # Utilities
 function which ($command) {
@@ -47,4 +51,14 @@ function ll ($command) {
 
 function search($command, $path) {
     ls $command -Force -Recurse -Path $path -ErrorAction SilentlyContinue
+}
+
+# Python environment
+function pe() {
+  python -m venv venv
+  .\venv\Scripts\Activate.ps1
+}
+
+function pa() {
+  .\venv\Scripts\Activate.ps1
 }

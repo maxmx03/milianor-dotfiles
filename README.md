@@ -13,6 +13,9 @@
 - [Neovim](https://neovim.io/)
 - [Powershell 7](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.2)
 
+<img src="./windows-terminal.png" />
+<img src="./neovim-windows.png" />
+
 ## PowerShell modules
 - [oh-my-posh](https://ohmyposh.dev/docs/windows)
 - [posh-git](https://github.com/dahlbyk/posh-git)
