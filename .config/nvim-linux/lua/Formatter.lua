@@ -11,7 +11,7 @@ function M.filename()
 end
 
 function M:prettier()
-  return {
+  local config = {
     function()
       return {
         exe = "prettier",
@@ -20,10 +20,12 @@ function M:prettier()
       }
     end
   }
+
+  return config, "prettier"
 end
 
 function M.luafmt()
-  return {
+  local config = {
     function()
       return {
         exe = "luafmt",
@@ -32,10 +34,12 @@ function M.luafmt()
       }
     end
   }
+
+  return config, "luafmt"
 end
 
 function M:autopep8()
-  return {
+  local config = {
     function()
       return {
         exe = "autopep8",
@@ -47,10 +51,12 @@ function M:autopep8()
       }
     end
   }
+
+  return config, "autopep8"
 end
 
 function M:black()
-  return {
+  local config = {
     function()
       return {
         exe = "black",
@@ -62,10 +68,12 @@ function M:black()
       }
     end
   }
+
+  return config, "black"
 end
 
 function M:bladefmt()
-  return {
+  local config = {
     function()
       return {
         exe = "blade-formatter",
@@ -78,22 +86,18 @@ function M:bladefmt()
       }
     end
   }
+
+  return config, "bladefmt"
 end
 
 function M:setup(formatters)
   local filetype = {}
 
   for file, fmt in pairs(formatters) do
-    if fmt == "luafmt" then
-      filetype[file] = self.luafmt()
-    elseif fmt == "autopep8" then
-      filetype[file] = self:autopep8()
-    elseif fmt == "black" then
-      filetype[file] = self:black()
-    elseif fmt == "bladefmt" then
-      filetype[file] = self:bladefmt()
-    else
-      filetype[file] = self:prettier()
+    local config, name = self[fmt](self)
+
+    if fmt == name then
+      filetype[file] = config
     end
   end
 
