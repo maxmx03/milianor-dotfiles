@@ -26,7 +26,6 @@ autocmd FileType php setlocal shiftwidth=4 softtabstop=4
 
 " Graphql
 au BufNewFile,BufRead *.prisma,*.graphql,*.graphqls,*.gql setfiletype graphql
-
 " Some Extensions need python to work
 let g:python3_host_prog = expand('/usr/bin/python3')
 

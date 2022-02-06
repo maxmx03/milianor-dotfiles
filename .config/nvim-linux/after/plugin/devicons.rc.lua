@@ -7,13 +7,16 @@ end
 local _, jscolor = devicons.get_icon_color("index.js", "js")
 local tsicon, _ = devicons.get_icon_color("index.ts", "ts")
 local _, htmlcolor = devicons.get_icon_color("index.html", "html")
-local tscolor, csscolor, gitcolor, angularcolor, karmacolor, jsoncolor =
+local rubyicon = devicons.get_icon_color("index.rb", "rb")
+local tscolor, csscolor, gitcolor, angularcolor, karmacolor, jsoncolor, rubycolor, gemcolor =
   "#3DB2FF",
   "#7C83FD",
   "#C84B31",
   "#EC4646",
   "#17D7A0",
-  "#3E7C17"
+  "#3E7C17",
+  "#FC4F4F",
+  "#FA4EAB"
 
 local htmlicon, cssicon, nodeicon, giticon, testicon, angularicon, karmaicon, webpackicon, babelicon =
   "",
@@ -38,6 +41,8 @@ devicons.set_icon {
   html = iconConfig(htmlicon, htmlcolor, "html"),
   css = iconConfig(cssicon, csscolor, "css"),
   ts = iconConfig(tsicon, tscolor, "typescript"),
+  rb = iconConfig(rubyicon, rubycolor, "ruby"),
+  ["Gemfile"] = iconConfig(rubyicon, gemcolor, "GemFile"),
   ["package.json"] = iconConfig(nodeicon, jsoncolor, "packagejson"),
   ["package-lock.json"] = iconConfig(nodeicon, jsoncolor, "packagelockjson"),
   [".gitkeep"] = iconConfig(nodeicon, gitcolor, "git"),
