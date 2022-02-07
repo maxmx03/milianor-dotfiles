@@ -2,6 +2,7 @@ set fish_greeting
 
 set PATH ~/.nvm/versions/node/v16.13.2/bin $PATH
 set PATH ~/.local/share/gem/ruby/2.7.0/bin $PATH
+set TERM screen-256color
 
 alias open xdg-open
 alias nvim "~/.local/nvim/nvim.appimage"
