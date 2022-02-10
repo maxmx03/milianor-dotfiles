@@ -1,7 +1,8 @@
-local status, nvim_lsp = pcall(require, "lspconfig")
+local status1, nvim_lsp = pcall(require, "lspconfig")
 local config = require "Lspconfig"
+local status2, dartls = pcall(require, "flutter-tools")
 
-if (not status) then
+if (not status1) and (not status2) then
   return
 end
 
@@ -112,6 +113,16 @@ nvim_lsp.vuels.setup {
           }
         }
       }
+    }
+  }
+}
+
+dartls.setup {
+  lsp = {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    flags = {
+      debounce_text_changes = 150
     }
   }
 }

@@ -12,12 +12,18 @@ Plug 'yardnsm/vim-import-cost', { 'do': 'npm install --production' }
 " Syntax
 Plug 'jwalton512/vim-blade'
 
+" Dracula
+Plug 'dracula/vim', { 'name': 'dracula' }
+
 if has("nvim")
   " General
   Plug 'neovim/nvim-lspconfig'
   Plug 'mhartington/formatter.nvim'
   Plug 'ray-x/lsp_signature.nvim'
- 
+  
+  " Flutter
+  Plug 'akinsho/flutter-tools.nvim'
+
   " Error Diagnostic
   Plug 'folke/trouble.nvim'
 
@@ -37,7 +43,6 @@ if has("nvim")
   Plug 'rafamadriz/friendly-snippets'
  
   " Visual improvement
-  Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
   Plug 'p00f/nvim-ts-rainbow'
   Plug 'norcalli/nvim-colorizer.lua'
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}

@@ -4,6 +4,7 @@
 ## Linux configs
 - [Neovim](https://neovim.io/)
 - [Tmux](https://linuxize.com/post/getting-started-with-tmux/)
+- [Tmux plugin manager](https://github.com/tmux-plugins/tpm)
 - [Fish](https://fishshell.com/)
 
 <img src="./terminal.png" />

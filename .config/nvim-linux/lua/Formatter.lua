@@ -10,6 +10,10 @@ function M.filename()
   return vim.fn.fnameescape(vim.api.nvim_buf_get_name(0))
 end
 
+function M.foldername()
+  return vim.fn.fnameescape(vim.fn.getcwd())
+end
+
 function M:prettier()
   local config = {
     function()
@@ -59,7 +63,7 @@ function M:black()
   local config = {
     function()
       return {
-        exe = "black",
+        exe = "python3 -m black",
         args = {
           "--stdin-filename",
           self.filename()

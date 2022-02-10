@@ -3,6 +3,7 @@ set fish_greeting
 set PATH ~/.nvm/versions/node/v16.13.2/bin $PATH
 set PATH ~/.local/share/gem/ruby/2.7.0/bin $PATH
 set TERM screen-256color
+set PATH ~/.local/bin/noisetorch $PATH
 
 alias open xdg-open
 alias nvim "~/.local/nvim/nvim.appimage"
@@ -15,13 +16,15 @@ alias pe "python3 -m venv venv"
 alias pa ". venv/bin/activate.fish"
 
 function fish_greeting
-  if not test "$TERM" = "screen-256color"
+  if not test "$TMUX" 
 	neofetch
   end
 end
 
 function ide
-  if test "$TERM" = "screen-256color"
+  set DEV_AMB "on_tmux"
+
+  if test "$TMUX"
     tmux split-window -v -p 30
     nvim
   else

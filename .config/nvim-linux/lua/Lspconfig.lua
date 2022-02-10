@@ -19,18 +19,20 @@ function M:formatters()
     vim.api.nvim_command [[nnoremap <C-f> :EslintFixAll<CR> :update<CR>]]
   end
 
-  local native_formatters = {
+  local formatters = {
     "intelephense",
     "vuels",
-    "solargraph"
+    "solargraph",
+    "dartls"
   }
 
-  for _, formatter in ipairs(native_formatters) do
-    if client.name == formatter then
-      client.resolved_capabilities.document_formatting = true
-    else
-      client.resolved_capabilities.document_formatting = false
-    end
+  if
+    client.name ~= formatters[1] and client.name ~= formatters[2] and client.name ~= formatters[3] and
+      client.name ~= formatters[4]
+   then
+    client.resolved_capabilities.document_formatting = false
+  else
+    client.resolved_capabilities.document_formatting = true
   end
 
   if client.name == "eslint" then
