@@ -23,7 +23,7 @@ local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protoco
 
 -- Enable some language servers with the additional completion capabilities offered by nvim-cmp
 local servers = {
-  "pyright",
+  "pylsp",
   "tsserver",
   "eslint",
   "sumneko_lua",
@@ -31,7 +31,9 @@ local servers = {
   "cssls",
   "vuels",
   "jsonls",
-  "solargraph"
+  "solargraph",
+  "vimls",
+  "rust_analyzer"
 }
 for _, lsp in ipairs(servers) do
   if (lsp == "sumneko_lua") then
@@ -118,6 +120,9 @@ nvim_lsp.vuels.setup {
 }
 
 dartls.setup {
+  widget_guides = {
+    enabled = true
+  },
   lsp = {
     on_attach = on_attach,
     capabilities = capabilities,

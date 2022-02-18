@@ -20,12 +20,11 @@ require "nvim-treesitter.configs".setup {
     max_file_lines = nil, -- Do not enable for files with more than n lines, int
     disable = {"html", "php"},
     colors = {
-      "#9ece6a",
       "#e0af68",
-      "#f7768e",
       "#bb9af7",
       "#7dcfff",
-      "#c0baf5"
+      "#f7768e",
+      "#a9b1d6"
     } -- table of hex strings
   }
 }

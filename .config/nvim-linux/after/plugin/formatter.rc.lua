@@ -2,7 +2,7 @@ local Formatter = require "Formatter"
 
 Formatter:setup {
   lua = "luafmt",
-  python = "black",
+  -- python = "black",
   htmldjango = "prettier",
   javascript = "prettier",
   javascriptreact = "prettier",

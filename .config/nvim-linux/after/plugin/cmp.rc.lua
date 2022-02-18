@@ -1,8 +1,9 @@
 local status1, luasnip = pcall(require, "luasnip")
 local status2, cmp = pcall(require, "cmp")
+local status3, lspkind = pcall(require, "lspkind")
 require("luasnip/loaders/from_vscode").lazy_load()
 
-if (not status1) and (not status2) then
+if (not status1) and (not status2) and (not status3) then
   return
 end
 
@@ -25,18 +26,20 @@ cmp.setup {
         c = cmp.mapping.close()
       }
     ),
-    ["<CR>"] = cmp.mapping.confirm({select = true})
+    ["<CR>"] = cmp.mapping.confirm({select = false})
   },
   sources = cmp.config.sources(
     {
       {name = "nvim_lsp"},
-      {name = "luasnip"},
-      {name = "cmp_tabnine"}
+      {name = "luasnip"}
     },
     {
       {name = "buffer"}
     }
-  )
+  ),
+  formatting = {
+    format = lspkind.cmp_format({width_text = true, maxwidth = 50})
+  }
 }
 
 cmp.setup.cmdline(

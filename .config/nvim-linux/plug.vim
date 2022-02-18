@@ -12,8 +12,8 @@ Plug 'yardnsm/vim-import-cost', { 'do': 'npm install --production' }
 " Syntax
 Plug 'jwalton512/vim-blade'
 
-" Dracula
-Plug 'dracula/vim', { 'name': 'dracula' }
+" Flutter
+Plug 'thosakwe/vim-flutter'
 
 if has("nvim")
   " General
@@ -33,7 +33,6 @@ if has("nvim")
   Plug 'hrsh7th/cmp-path'
   Plug 'hrsh7th/cmp-cmdline'
   Plug 'hrsh7th/nvim-cmp'
-  Plug 'tzachar/cmp-tabnine', {'do': './install.sh'}
 
   " LuaSnip
   Plug 'L3MON4D3/LuaSnip'
@@ -48,6 +47,8 @@ if has("nvim")
   Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
   Plug 'kyazdani42/nvim-web-devicons'
   Plug 'nvim-lualine/lualine.nvim'
+  Plug 'onsails/lspkind-nvim'
+  Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
   " Auto pairs and tag
   Plug 'windwp/nvim-ts-autotag'
@@ -62,6 +63,9 @@ if has("nvim")
   " Git Diffview
   Plug 'nvim-lua/plenary.nvim'
   Plug 'sindrets/diffview.nvim'
+
+  " Markdown
+  Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 endif
 
 call plug#end()

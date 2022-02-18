@@ -23,12 +23,16 @@ function M:formatters()
     "intelephense",
     "vuels",
     "solargraph",
-    "dartls"
+    "dartls",
+    "pylsp",
+    "rust_analyzer"
   }
 
   if
     client.name ~= formatters[1] and client.name ~= formatters[2] and client.name ~= formatters[3] and
-      client.name ~= formatters[4]
+      client.name ~= formatters[4] and
+      client.name ~= formatters[5] and
+      client.name ~= formatters[6]
    then
     client.resolved_capabilities.document_formatting = false
   else
