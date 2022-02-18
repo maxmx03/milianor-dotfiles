@@ -3,20 +3,16 @@ right_format = "$time"
 
 [username]
 format = "[ $user]($style) in "
-style_user = "bold #FA4EAB"
-style_root = "bold #FA4EAB"
+style_user = "bold #f7768e"
+style_root = "bold #f7768e"
 show_always = true
 
 [directory]
 format = "[$path]($style) "
 style = "bold #7dcfff"
 
-[character]
-success_symbol = "[](bold #9ece6a) "
-error_symbol = "[](bold #f7768e) "
-
 [time]
 disabled = false
 format = "[ $time]($style) "
 use_12hr = true
-style = "bold #7aa2f7"
+style = "bold #bb9af7"
