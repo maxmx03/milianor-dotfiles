@@ -1,5 +1,6 @@
 # Neovim config by Milianor
 
+## My new nvim config: [milianor-vim](https://github.com/maxmx03/milianor-vim)
 ## Requeriments
 - [neovim](https://neovim.io/)
 - [vim-plug](https://github.com/junegunn/vim-plug)
