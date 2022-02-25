@@ -1,8 +1,10 @@
 # Linux and Windows Configuration
 ### by *Max Miliano Del Canto*
 
+## Neovim config
+[milianor-vim](https://github.com/maxmx03/milianor-vim)
+
 ## Linux configs
-- [Neovim](https://neovim.io/)
 - [Tmux](https://linuxize.com/post/getting-started-with-tmux/)
 - [Tmux plugin manager](https://github.com/tmux-plugins/tpm)
 - [Fish](https://fishshell.com/)
@@ -11,11 +13,9 @@
 <img src="./tmux-neovim.png" />
 
 ## Windows configs
-- [Neovim](https://neovim.io/)
 - [Powershell 7](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.2)
 
 <img src="./windows-terminal.png" />
-<img src="./neovim-windows.png" />
 
 ## PowerShell modules
 - [oh-my-posh](https://ohmyposh.dev/docs/windows)
@@ -34,14 +34,10 @@
 4. VictorMono Nerd Font
 
 ## Themes/Colors - Tokyo Night
-- [Neovim/Fish](https://github.com/folke/tokyonight.nvim)
+- [Fish](https://github.com/folke/tokyonight.nvim)
 - [Windows Terminal](https://windowsterminalthemes.dev/)
 
 ## Recommended Tutorials
 1. [Neovim](https://www.youtube.com/watch?v=FW2X1CXrU1w)
 2. [Fish](https://www.youtube.com/watch?v=KKxhf50FIPI&t=873s)
 3. [PowerShell](https://www.youtube.com/watch?v=5-aK2_WwrmM&t=384s)
-
-### All credits to *Takuya Matsuyama*
-- [Website](https://www.craftz.dog/)
-
