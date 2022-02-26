@@ -1,14 +1,12 @@
 set fish_greeting
+set TERM screen-256color
 
 set PATH ~/.nvm/versions/node/v16.14.0/bin $PATH
-set PATH ~/.local/share/gem/ruby/2.7.0/bin $PATH
-set TERM screen-256color
-set PATH ~/.local/bin $PATH
+set PATH ~/.local/share/flutter/bin $PATH
 set PATH ~/.cargo/bin $PATH
-set PATH ~/Android/Sdk/tools/bin $PATH
-set PATH ~/Android/Sdk/platform-tools/ $PATH
 
-# alias emulator "~/Android/Sdk/emulator/emulator"
+alias emulator "~/Android/Sdk/emulator/emulator"
+alias icat "kitty +kitten icat"
 alias noisetorch "~/.local/bin/noisetorch"
 alias ls "exa --long --icons --tree --level=1 -a"
 alias ll ls
@@ -16,6 +14,7 @@ alias python python3
 alias pip pip3
 alias pe "python3 -m venv venv"
 alias pa ". venv/bin/activate.fish"
+alias find "fd -H -I -i"
 
 function fish_greeting
   if not test "$TMUX" 
@@ -37,5 +36,3 @@ end
 function change_java
   sudo update-alternatives --config java
 end
-
-starship init fish | source
