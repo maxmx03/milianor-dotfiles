@@ -15,6 +15,8 @@ alias pip pip3
 alias pe "python3 -m venv venv"
 alias pa ". venv/bin/activate.fish"
 alias find "fd -H -I -i"
+alias java_status "archlinux-java status"
+alias java_set "sudo archlinux-java set"
 
 function fish_greeting
   if not test "$TMUX" 
@@ -36,3 +38,4 @@ end
 function change_java
   sudo update-alternatives --config java
 end
+
