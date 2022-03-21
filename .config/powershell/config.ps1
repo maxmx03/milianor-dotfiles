@@ -1,10 +1,14 @@
-# Prompt
-import-Module posh-git
-import-Module oh-my-posh
-Set-PoshPrompt Space
+# Git
+Import-Module posh-git
 
-# Icons
+# Theme
+Import-Module oh-my-posh
 Import-Module -Name Terminal-Icons
+Set-PoshPrompt -Theme space
+
+# Fzf
+Import-Module PSFzf
+Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f' -PSReadlineChordReverseHistory 'Ctrl+r'
 
 # PSReadLine
 Set-PSReadLineOption -EditMode Emacs
@@ -13,23 +17,11 @@ Set-PSReadLineKeyHandler -Chord 'Ctrl+d' -Function DeleteChar
 Set-PSReadLineOption -PredictionSource History
 Set-PSReadLineOption -PredictionViewStyle ListView
 
-# Fzf
-Import-Module PSFzf
-Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f' -PSReadlineChordReverseHistory 'Ctrl+r'
-
 # Path
-$Env:Path += ';C:\Program Files\PostgreSQL\14\bin'
-$Env:Path += ';C:\Program Files\LOVE'
+$Env:Path += ';C:\Users\maxma\scoop\apps\nvm\current\nodejs\v16.14.2'
 
 # Alias
 Set-Alias vim nvim
-Set-Alias grep findstr
-Set-Alias tig 'C:\Program Files\Git\usr\bin\tig.exe'
-Set-Alias less 'C:\Program Files\Git\usr\bin\less.exe'
-Set-Alias g git
-Set-Alias p python
-Set-Alias d docker
-Set-Alias dc docker-compose
 
 # Utilities
 function which ($command) {
@@ -49,8 +41,8 @@ function ll ($command) {
     ls -Force $command
 }
 
-function search($command, $path) {
-    ls $command -Force -Recurse -Path $path -ErrorAction SilentlyContinue
+function find($command) {
+    fd $command -H -i $HOME
 }
 
 # Python environment
