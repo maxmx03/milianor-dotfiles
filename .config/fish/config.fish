@@ -1,14 +1,14 @@
 set fish_greeting
-set TERM screen-256color
+set TERM xterm-256color
 
-set PATH ~/.nvm/versions/node/v16.14.2/bin $PATH
+set PATH ~/.nvm/versions/node/v16.15.0/bin $PATH
 set PATH ~/.local/share/flutter/bin $PATH
 set PATH ~/.cargo/bin $PATH
-# set PATH ~/.local/share/spring-2.6.4/bin $PATH
-# set PATH ~/Android/Sdk/platform-tools $PATH
-# set PATH ~/Android/Sdk/cmdline-tools/latest/bin $PATH
+set PATH ~/.local/share/spring-2.6.4/bin $PATH
+set PATH ~/Android/Sdk/platform-tools $PATH
+set PATH ~/Android/Sdk/cmdline-tools/latest/bin $PATH
 
-# alias emulator "~/Android/Sdk/emulator/emulator"
+alias emulator "~/Android/Sdk/emulator/emulator"
 alias vim nvim
 alias ls "exa --long --icons --tree --level=1 -a"
 alias ll ls
