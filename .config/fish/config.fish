@@ -8,8 +8,8 @@ set PATH ~/.local/share/spring-2.6.4/bin $PATH
 set PATH ~/Android/Sdk/platform-tools $PATH
 set PATH ~/Android/Sdk/cmdline-tools/latest/bin $PATH
 
+alias glow "~/.local/share/glow/glow"
 alias emulator "~/Android/Sdk/emulator/emulator"
-alias vim nvim
 alias ls "exa --long --icons --tree --level=1 -a"
 alias ll ls
 alias python python3
@@ -21,9 +21,6 @@ alias fd "fdfind"
 alias java_set "sudo update-alternatives --config java"
 
 function fish_greeting
-  if not test "$TMUX" 
-	neofetch
-  end
 end
 
 function ide

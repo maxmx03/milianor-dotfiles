@@ -67,7 +67,7 @@ window:
   #
   # Window opacity as a floating point number from `0.0` to `1.0`.
   # The value `0.0` is completely transparent and `1.0` is opaque.
-  opacity: 1
+  opacity: 0.9
 
   # Startup Mode (changes require restart)
   #
@@ -188,38 +188,40 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
 
-# TokyoNight Alacritty Colors
+# Kanagawa Alacritty Colors
 colors:
-  # Default colors
   primary:
-    background: "0x1a1b26"
-    foreground: "0xc0caf5"
+    background: '0x1f1f28'
+    foreground: '0xdcd7ba'
 
-  # Normal colors
   normal:
-    black: "0x15161E"
-    red: "0xf7768e"
-    green: "0x9ece6a"
-    yellow: "0xe0af68"
-    blue: "0x7aa2f7"
-    magenta: "0xbb9af7"
-    cyan: "0x7dcfff"
-    white: "0xa9b1d6"
+    black:   '0x090618'
+    red:     '0xc34043'
+    green:   '0x76946a'
+    yellow:  '0xc0a36e'
+    blue:    '0x7e9cd8'
+    magenta: '0x957fb8'
+    cyan:    '0x6a9589'
+    white:   '0xc8c093'
 
-  # Bright colors
   bright:
-    black: "0x414868"
-    red: "0xf7768e"
-    green: "0x9ece6a"
-    yellow: "0xe0af68"
-    blue: "0x7aa2f7"
-    magenta: "0xbb9af7"
-    cyan: "0x7dcfff"
-    white: "0xc0caf5"
+    black:   '0x727169'
+    red:     '0xe82424'
+    green:   '0x98bb6c'
+    yellow:  '0xe6c384'
+    blue:    '0x7fb4ca'
+    magenta: '0x938aa9'
+    cyan:    '0x7aa89f'
+    white:   '0xdcd7ba'
+
+  selection:
+    background: '0x2d4f67'
+    foreground: '0xc8c093'
 
   indexed_colors:
-    - { index: 16, color: "0xff9e64" }
-    - { index: 17, color: "0xdb4b4b" }
+    - { index: 16, color: '0xffa066' }
+    - { index: 17, color: '0xff5d62' }
+
 #colors:
 # Default colors
 #primary:
