@@ -9,14 +9,15 @@ keymap('n', '<space>w', 'update')
 keymap('n', '<space>q', 'quit')
 
 -- NEO-TREE
-keymap('n', '<space>n', 'Neotree filesystem toggle')
+keymap('n', '<space>e', 'Neotree filesystem toggle')
 
 -- TELESCOPE
 keymap('n', '<space>ff', 'Telescope find_files')
 keymap('n', '<space>fg', 'Telescope live_grep')
 
 -- TABLINE
-keymap('n', '<space>b', 'TablineBufferNext')
+keymap('n', '<space>n', 'TablineBufferNext')
+keymap('n', '<space>b', 'TablineBufferPrevious')
 keymap('n', '<space>x', 'bd')
 
 -- LSPSAGA
