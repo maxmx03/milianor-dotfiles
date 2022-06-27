@@ -1,5 +1,5 @@
 local success, error = pcall(function()
-  require 'impatient'
+  require 'core.impatient'
   require 'core.null-ls'
   require 'core.cmp'
   require 'core.lsp-signature'
