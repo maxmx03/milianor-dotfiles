@@ -5,9 +5,3 @@ create_autocmd({ 'BufWinEnter' }, {
     vim.cmd 'set formatoptions-=cro'
   end,
 })
-
-create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank { higroup = 'IncSearch', timeout = 300 }
-  end,
-})

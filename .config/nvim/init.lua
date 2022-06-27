@@ -55,4 +55,4 @@ ide.servers = {
   'svelte',
 }
 
-vim.g.transparent_background = true
+vim.g.transparent_background = false

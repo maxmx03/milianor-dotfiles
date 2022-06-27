@@ -25,6 +25,5 @@ end)
 if success then
   vim.cmd(string.format('colorscheme %s', ide.colorscheme))
 else
-  print(error)
   vim.cmd 'colorscheme slate'
 end

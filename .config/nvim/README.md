@@ -1,4 +1,6 @@
-# [Inspiration](https://github.com/craftzdog/dotfiles-public)
+# Minimalist neovim config
+
+# [Inspired by](https://github.com/craftzdog/dotfiles-public)
 
 # Quick Start
 
