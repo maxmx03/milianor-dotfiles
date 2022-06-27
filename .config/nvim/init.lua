@@ -2,7 +2,6 @@ require 'config.init'
 require 'plugins'
 
 ide = {}
-ide.colorscheme = 'solarized'
 ide.position = 'bottom'
 ide.colorscheme = 'solarized'
 ide.formattings = {
@@ -55,4 +54,5 @@ ide.servers = {
   'tailwindcss',
   'svelte',
 }
+
 vim.g.transparent_background = true
