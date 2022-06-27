@@ -34,6 +34,7 @@ packer.startup {
       'nvim-telescope/telescope.nvim',
       'numToStr/Comment.nvim',
       'SmiteshP/nvim-gps',
+      'phaazon/hop.nvim',
       {
         'nvim-neo-tree/neo-tree.nvim',
         branch = 'v2.x',

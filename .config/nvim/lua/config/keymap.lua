@@ -34,6 +34,10 @@ keymap('n', '<space>pp', 'PackerSync')
 keymap('n', '<space>gd', 'DiffviewOpen')
 keymap('n', '<space>gc', 'DiffviewClose')
 
+-- HOP
+keymap('n', 's', 'HopPattern')
+keymap('n', 'f', 'HopWord')
+
 -- COMMENT
 local opt = { expr = true, remap = true }
 

@@ -18,6 +18,7 @@ local success, error = pcall(function()
   require 'core.diffview'
   require 'core.indent_blankline'
   require 'core.comment'
+  require 'core.hop'
   require 'core.winbar'
 end)
 
