@@ -1,4 +1,5 @@
 local lsp = require 'lspconfig'
+local keymap = require('utils').keymap
 
 vim.diagnostic.config {
   virtual_text = {
@@ -9,12 +10,7 @@ vim.diagnostic.config {
 local on_attach = function(_, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-  vim.cmd [[
-    augroup LspFormatting
-      autocmd! * <buffer>
-      autocmd BufWritePre <buffer> lua vim.lsp.buf.format()
-    augroup END
-  ]]
+  keymap('n', '<space>l', 'lua vim.lsp.buf.format()')
 end
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -27,7 +23,7 @@ local config = {
   capabilities = capabilities,
 }
 
-for _, server in pairs(ide.servers) do
+for _, server in pairs(user.servers) do
   if server == 'sumneko_lua' then
     local luadev = require 'lua-dev'
 

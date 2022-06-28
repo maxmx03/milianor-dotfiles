@@ -1,4 +1,4 @@
-local success, error = pcall(function()
+local success = pcall(function()
   require 'core.impatient'
   require 'core.null-ls'
   require 'core.cmp'
@@ -23,7 +23,8 @@ local success, error = pcall(function()
 end)
 
 if success then
-  vim.cmd(string.format('colorscheme %s', ide.colorscheme))
+  vim.g.transparent_background = user.transparency
+  vim.cmd(string.format('colorscheme %s', user.colorscheme))
 else
   vim.cmd 'colorscheme slate'
 end

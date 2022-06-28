@@ -1,7 +1,14 @@
-local create_autocmd = vim.api.nvim_create_autocmd
+local set_autocmd = require('utils').set_autocmd
 
-create_autocmd({ 'BufWinEnter' }, {
+set_autocmd({ 'BufWinEnter' }, {
   callback = function()
     vim.cmd 'set formatoptions-=cro'
+  end,
+})
+
+set_autocmd({ 'InsertLeave', 'TextChanged' }, {
+  pattern = '*.*',
+  callback = function()
+    vim.cmd 'update'
   end,
 })

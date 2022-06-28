@@ -1,17 +1,14 @@
 require 'config.init'
 require 'plugins'
 
-ide = {}
-ide.position = 'bottom'
-ide.colorscheme = 'solarized'
-ide.formattings = {
+user.formattings = {
   'prettier',
   'stylua',
 }
-ide.diagnostics = {
+user.diagnostics = {
   'eslint',
 }
-ide.langs = {
+user.langs = {
   'bash',
   'c',
   'c_sharp',
@@ -40,7 +37,7 @@ ide.langs = {
   'vue',
   'yaml',
 }
-ide.servers = {
+user.servers = {
   'pylsp',
   'tsserver',
   'sumneko_lua',
@@ -54,5 +51,3 @@ ide.servers = {
   'tailwindcss',
   'svelte',
 }
-
-vim.g.transparent_background = false

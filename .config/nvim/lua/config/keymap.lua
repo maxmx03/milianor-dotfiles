@@ -1,11 +1,6 @@
-local keymap = function(mode, lhs, rhs, opts)
-  vim.api.nvim_set_keymap(mode, lhs, ':' .. rhs .. '<cr>', opts or { noremap = true, silent = true })
-end
+local keymap = require('utils').keymap
 
--- SAVE BUFFER
-keymap('n', '<space>w', 'update')
-
--- QUITE NEOVIM
+-- QUIT NEOVIM
 keymap('n', '<space>q', 'quit')
 
 -- NEO-TREE
@@ -16,8 +11,8 @@ keymap('n', '<space>ff', 'Telescope find_files')
 keymap('n', '<space>fg', 'Telescope live_grep')
 
 -- TABLINE
-keymap('n', '<space>n', 'TablineBufferNext')
-keymap('n', '<space>b', 'TablineBufferPrevious')
+keymap('n', '<space>[', 'TablineBufferNext')
+keymap('n', '<space>]', 'TablineBufferPrevious')
 keymap('n', '<space>x', 'bd')
 
 -- LSPSAGA

@@ -2,7 +2,7 @@ local neotree = require 'neo-tree'
 
 neotree.setup {
   window = {
-    position = ide.position,
+    position = user.position,
     mappings = {
       ['<space>'] = '',
     },
