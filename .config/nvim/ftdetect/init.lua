@@ -23,7 +23,22 @@ local success = pcall(function()
 end)
 
 if success then
-  vim.g.transparent_background = user.transparency
+  local onedarkpro = require 'onedarkpro'
+  local colors = onedarkpro.get_colors(vim.g.onedarkpro_style)
+
+  onedarkpro.setup {
+    options = {
+      transparency = user.transparency,
+    },
+    hlgroups = {
+      NeoTreeDirectoryName = { fg = colors.fg },
+      NeoTreeDirectoryIcon = { fg = colors.blue },
+      NeoTreeRootName = {
+        fg = colors.blue,
+      },
+    },
+  }
+  onedarkpro.load()
   vim.cmd(string.format('colorscheme %s', user.colorscheme))
 else
   vim.cmd 'colorscheme slate'

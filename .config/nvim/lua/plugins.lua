@@ -18,7 +18,7 @@ local packer = require 'packer'
 packer.startup {
   function(use)
     use {
-      'maxmx03/solarized.nvim',
+      'olimorris/onedarkpro.nvim',
       'wbthomason/packer.nvim',
       'neovim/nvim-lspconfig',
       'williamboman/nvim-lsp-installer',

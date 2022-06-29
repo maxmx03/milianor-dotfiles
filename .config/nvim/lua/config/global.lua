@@ -1,7 +1,7 @@
 user = {}
 user.position = 'bottom'
-user.colorscheme = 'solarized'
-user.transparency = true
+user.colorscheme = 'onedarkpro'
+user.transparency = false
 user.formattings = {}
 user.diagnostics = {}
 user.langs = {}

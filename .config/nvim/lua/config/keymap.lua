@@ -11,8 +11,8 @@ keymap('n', '<space>ff', 'Telescope find_files')
 keymap('n', '<space>fg', 'Telescope live_grep')
 
 -- TABLINE
-keymap('n', '<space>[', 'TablineBufferNext')
-keymap('n', '<space>]', 'TablineBufferPrevious')
+keymap('n', '<Right>', 'TablineBufferNext')
+keymap('n', '<Left>', 'TablineBufferPrevious')
 keymap('n', '<space>x', 'bd')
 
 -- LSPSAGA
