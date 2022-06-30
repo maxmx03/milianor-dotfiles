@@ -23,7 +23,7 @@ local success = pcall(function()
 end)
 
 if success then
-  local onedarkpro, colors = require 'utils'.get_theme()
+  local onedarkpro, colors = require('utils').get_theme()
 
   onedarkpro.setup {
     options = {
