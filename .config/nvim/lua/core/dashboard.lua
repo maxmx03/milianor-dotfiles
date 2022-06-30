@@ -22,7 +22,7 @@ dashboard.custom_center = {
     icon = '  ',
     desc = 'File Browser                            ',
     action = 'Neotree filesystem toggle',
-    shortcut = 'SPC n ',
+    shortcut = 'SPC n  ',
   },
   {
     icon = '  ',
@@ -40,7 +40,7 @@ dashboard.custom_center = {
     icon = '  ',
     desc = 'Exit                                    ',
     action = 'qa',
-    shortcut = 'SPC q ',
+    shortcut = 'SPC q  ',
   },
 }
 

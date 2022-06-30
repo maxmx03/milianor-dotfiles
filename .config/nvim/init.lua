@@ -1,6 +1,7 @@
 require 'config.init'
 require 'plugins'
 
+user.position = 'left'
 user.formattings = {
   'prettier',
   'stylua',
