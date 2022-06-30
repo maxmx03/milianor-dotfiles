@@ -23,8 +23,7 @@ local success = pcall(function()
 end)
 
 if success then
-  local onedarkpro = require 'onedarkpro'
-  local colors = onedarkpro.get_colors(vim.g.onedarkpro_style)
+  local onedarkpro, colors = require 'utils'.get_theme()
 
   onedarkpro.setup {
     options = {
