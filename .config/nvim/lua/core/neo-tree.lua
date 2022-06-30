@@ -1,6 +1,14 @@
 local neotree = require 'neo-tree'
 
 neotree.setup {
+  event_handlers = {
+    {
+      event = 'file_opened',
+      handler = function(file_path)
+        neotree.close_all()
+      end,
+    },
+  },
   window = {
     position = user.position,
     mappings = {

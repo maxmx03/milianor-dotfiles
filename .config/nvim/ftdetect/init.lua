@@ -19,6 +19,7 @@ local success = pcall(function()
   require 'core.indent_blankline'
   require 'core.comment'
   require 'core.hop'
+  require 'core.dashboard'
   require 'core.winbar'
 end)
 
