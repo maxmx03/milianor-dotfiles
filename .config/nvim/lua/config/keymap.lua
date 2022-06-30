@@ -1,7 +1,10 @@
 local keymap = require('utils').keymap
 
--- QUIT NEOVIM
+-- QUIT
 keymap('n', '<space>q', 'quit')
+
+-- QUIT NEOVIM
+keymap('n', '<F3>', 'quitall')
 
 -- NEO-TREE
 keymap('n', '<space>e', 'Neotree filesystem toggle')
