@@ -16,13 +16,13 @@ Neovim config files was moved to
 - [Fish](https://fishshell.com/)
 - [kitty](https://sw.kovidgoyal.net/kitty/)
 
-<img src="./terminal.png" />
+<img src="./docs/terminal.png" />
 
 #### Windows dotfiles
 
 - [Powershell 7](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-on-windows?view=powershell-7.2)
 
-<img src="./windows-terminal.png" />
+<img src="./docs/windows-terminal.png" />
 
 ##### PowerShell modules
 
