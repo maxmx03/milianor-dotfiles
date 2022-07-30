@@ -1,7 +1,6 @@
-set fish_greeting
 set TERM xterm-256color
 
-set PATH ~/.nvm/versions/node/v16.15.1/bin $PATH
+set PATH ~/.nvm/versions/node/v16.16.0/bin $PATH
 set PATH ~/.local/share/flutter/bin $PATH
 set PATH ~/.cargo/bin $PATH
 
@@ -33,3 +32,6 @@ function change_java
   sudo update-alternatives --config java
 end
 
+function fish_greeting
+  neofetch
+end
