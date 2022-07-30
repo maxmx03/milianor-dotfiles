@@ -1,0 +1,9 @@
+set number
+set mouse=a
+
+"  autocmd
+autocmd InsertLeave,TextChanged * update
+
+" mappings
+nnoremap <silent><Space>q <cmd>quit<CR>
+nnoremap <silent><Space>e <cmd>Explore<CR>
